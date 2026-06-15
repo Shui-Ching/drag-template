@@ -1,0 +1,166 @@
+// ── 縮圖示意 CSS（sidebar 中的 block 預覽）────────────────────
+
+.thumb-header {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 8px;
+  gap: 6px;
+}
+
+.thumb-logo {
+  width: 20px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+}
+
+.thumb-nav {
+  flex: 1;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+
+  span {
+    width: 12px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+  }
+}
+
+.thumb-btn {
+  width: 22px;
+  height: 10px;
+  background: $accent;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+// ── Banner ────────────────────────────────────────────────────
+.thumb-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px;
+  gap: 4px;
+  height: 100%;
+
+  &-title {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    width: 70%;
+  }
+
+  &-sub {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    width: 50%;
+  }
+
+  &-cta {
+    margin-top: 4px;
+    height: 10px;
+    width: 36px;
+    background: $accent;
+    border-radius: 2px;
+    opacity: 0.8;
+  }
+}
+
+// ── Columns ───────────────────────────────────────────────────
+.thumb-cols {
+  display: flex;
+  gap: 4px;
+  align-items: stretch;
+  height: 100%;
+  padding: 8px;
+}
+
+.thumb-col {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px;
+}
+
+.thumb-col-line {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+
+  &.short { width: 60%; }
+}
+
+// ── CTA ───────────────────────────────────────────────────────
+.thumb-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 100%;
+  flex-direction: column;
+
+  &-text {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    width: 50%;
+  }
+
+  &-btn {
+    height: 12px;
+    width: 44px;
+    background: $accent;
+    border-radius: 3px;
+    opacity: 0.8;
+  }
+}
+
+// ── Footer ────────────────────────────────────────────────────
+.thumb-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 6px 8px;
+  gap: 4px;
+
+  &-cols {
+    display: flex;
+    gap: 4px;
+    flex: 1;
+    align-items: flex-end;
+    padding-bottom: 4px;
+  }
+
+  &-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &-line {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1px;
+
+    &.head {
+      background: rgba(255, 255, 255, 0.45);
+      width: 50%;
+    }
+  }
+
+  &-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 1px;
+    margin-top: 2px;
+  }
+}

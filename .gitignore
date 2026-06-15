@@ -1,0 +1,17 @@
+# 相依套件
+node_modules/
+
+# 系統 / 編輯器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 日誌與快取
+*.log
+.sass-cache/
+.cache/
+
+# 環境變數
+.env
+.env.local

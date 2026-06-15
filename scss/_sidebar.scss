@@ -1,0 +1,125 @@
+#sidebar {
+  grid-area: sidebar;
+  background: $sidebar-bg;
+  border-right: 1px solid $sidebar-border;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-section-label {
+  font-size: $font-size-base;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $text-secondary;
+  padding: 16px 16px 8px;
+}
+
+// ── Category list ─────────────────────────────────────────────
+#category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 10px 12px;
+  border-bottom: 1px solid $sidebar-border;
+}
+
+.cat-btn {
+  font-family: $font-ui;
+  font-size: $font-size-base;
+  background: transparent;
+  border: none;
+  color: $cat-text;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  transition: all 0.12s;
+
+  &:hover {
+    background: $sidebar-hover;
+    color: $text-primary;
+  }
+
+  &.active {
+    background: rgba(59, 130, 246, 0.15);
+    color: #93c5fd;
+    font-weight: 500;
+  }
+}
+
+.cat-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-base;
+  flex-shrink: 0;
+}
+
+.cat-count {
+  margin-left: auto;
+  font-size: $font-size-base;
+  opacity: 0.5;
+}
+
+// ── Block list ────────────────────────────────────────────────
+#block-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-content: start;
+
+  &::-webkit-scrollbar         { width: 4px; }
+  &::-webkit-scrollbar-track   { background: transparent; }
+  &::-webkit-scrollbar-thumb   {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+}
+
+.block-card {
+  background: $block-card-bg;
+  border: 1px solid $block-card-border;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: grab;
+  transition: all 0.15s;
+  user-select: none;
+
+  &:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    background: $block-card-hover;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &.dragging { opacity: 0.4; cursor: grabbing; }
+}
+
+.block-thumb {
+  width: 100%;
+  height: 68px;
+  overflow: hidden;
+  position: relative;
+  background: #1a2035;
+}
+
+.block-card-label {
+  padding: 6px 8px;
+  font-size: $font-size-base;
+  color: $text-secondary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

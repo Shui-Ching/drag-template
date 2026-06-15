@@ -1,0 +1,25 @@
+// ── Palette ─────────────────────────────────────────────────
+$sidebar-bg:         #0e1117;
+$sidebar-border:     rgba(255, 255, 255, 0.07);
+$sidebar-hover:      rgba(255, 255, 255, 0.05);
+$cat-text:           #6b7280;
+$block-card-bg:      #161b27;
+$block-card-border:  rgba(255, 255, 255, 0.07);
+$block-card-hover:   #1e2538;
+$canvas-bg:          #e9e7e2;
+$page-bg:            #ffffff;
+$toolbar-bg:         #0a0d14;
+$toolbar-border:     rgba(255, 255, 255, 0.06);
+$text-primary:       #f0f0ef;
+$text-secondary:     #5c6170;
+$accent:             #3b82f6;
+$accent-hover:       #2563eb;
+$danger:             #ef4444;
+
+// ── Typography ───────────────────────────────────────────────
+$font-ui:      'DM Mono', monospace;
+$font-display: 'Syne', sans-serif;
+
+// ── Font Size ────────────────────────────────────────────────
+$font-size-base: 16px;   // 基礎字級，切勿低於此值
+$font-size-xl:   32px;   // 大字（icon、標題用）

@@ -1,0 +1,26 @@
+// ── 順序重要：variables 必須在最前面 ────────────────────────
+
+// 設計 Token：色票（sidebar、canvas、accent 等）與字型變數（DM Mono、Syne）
+@import 'variables';
+
+// 全域 reset：box-sizing、margin/padding 歸零、html/body 高度與基礎字型
+@import 'reset';
+
+// App 整體 Grid 佈局：toolbar / sidebar / canvas 三區塊排列（grid-template-areas）
+@import 'layout';
+
+// 頂部工具列：品牌名稱、區塊計數、清空 / 匯出按鈕，以及全域 .btn 元件樣式
+@import 'toolbar';
+
+// 左側邊欄：分類切換按鈕列（.cat-btn）與區塊卡片格狀列表（.block-card）
+@import 'sidebar';
+
+// 側邊欄內的縮圖示意元件：header / banner / columns / cta / footer 各類預覽佔位圖
+@import 'thumbs';
+
+// 主畫布區域：頁面白底模擬（#page-canvas）、拖曳插入指示線、canvas-block 懸停控制列
+@import 'canvas';
+
+// 右下角 Toast 提示訊息：彈出 / 淡出動畫
+@import 'toast';
+      

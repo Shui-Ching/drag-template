@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PageCraft — 頁面組裝系統</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.min.css">
+<!-- html2canvas 掛在 window 上供 export.js 使用 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+<div id="app">
+
+  <!-- ─── TOOLBAR ─────────────────────────────────────────── -->
+  <header id="toolbar">
+    <div class="toolbar-brand">
+      <div class="toolbar-brand-dot"></div>
+      PageCraft
+    </div>
+    <span id="block-count">0 個區塊</span>
+    <div class="toolbar-sep"></div>
+    <button class="btn btn-ghost" id="btn-clear" title="清空畫布">⊘ 清空</button>
+    <button class="btn btn-ghost" id="btn-export-block" title="匯出選取區塊">↓ 匯出區塊</button>
+    <button class="btn btn-primary" id="btn-export-page" title="匯出整頁 JPG">↓ 匯出整頁 JPG</button>
+  </header>
+
+  <!-- ─── SIDEBAR ──────────────────────────────────────────── -->
+  <aside id="sidebar">
+    <div class="sidebar-section-label">分類</div>
+    <div id="category-list"></div>
+    <div class="sidebar-section-label">區塊</div>
+    <div id="block-list"></div>
+  </aside>
+
+  <!-- ─── CANVAS ───────────────────────────────────────────── -->
+  <main id="canvas-area">
+    <div id="page-canvas">
+      <div id="empty-hint">
+        <div class="empty-icon">⊞</div>
+        <div class="empty-text">從左側選擇區塊<br>拖曳至此處開始組裝頁面</div>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<div id="toast"></div>
+
+<!-- type="module" 啟用 ES modules，需透過本機 Server 開啟（不可直接用 file://） -->
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

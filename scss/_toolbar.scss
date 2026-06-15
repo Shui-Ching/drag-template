@@ -1,0 +1,81 @@
+#toolbar {
+  grid-area: toolbar;
+  background: $toolbar-bg;
+  border-bottom: 1px solid $toolbar-border;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+  z-index: 100;
+}
+
+.toolbar-brand {
+  font-family: $font-display;
+  font-size: $font-size-base;
+  font-weight: 800;
+  color: $text-primary;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar-brand-dot {
+  width: 8px;
+  height: 8px;
+  background: $accent;
+  border-radius: 50%;
+  box-shadow: 0 0 8px $accent;
+}
+
+.toolbar-sep { flex: 1; }
+
+#block-count {
+  font-size: $font-size-base;
+  color: $text-secondary;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+  border: 1px solid $sidebar-border;
+}
+
+// ── Button ───────────────────────────────────────────────────
+.btn {
+  font-family: $font-ui;
+  font-size: $font-size-base;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &-ghost {
+    background: transparent;
+    color: $text-secondary;
+    border: 1px solid $sidebar-border;
+
+    &:hover {
+      background: $sidebar-hover;
+      color: $text-primary;
+    }
+  }
+
+  &-danger {
+    background: rgba(239, 68, 68, 0.1);
+    color: $danger;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+
+    &:hover { background: rgba(239, 68, 68, 0.2); }
+  }
+
+  &-primary {
+    background: $accent;
+    color: #fff;
+
+    &:hover { background: $accent-hover; }
+  }
+}

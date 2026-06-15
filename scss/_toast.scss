@@ -1,0 +1,24 @@
+#toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1e2538;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: $font-size-base;
+  color: $text-primary;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 9999;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  &.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

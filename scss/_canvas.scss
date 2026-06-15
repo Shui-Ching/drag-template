@@ -1,0 +1,149 @@
+// ── 可供 canvas-block 控制列共用的 placeholder ───────────────
+%overlay-ctrl {
+  width: 28px;
+  height: 28px;
+  backdrop-filter: blur(4px);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
+}
+
+// ── Canvas 外框 ───────────────────────────────────────────────
+#canvas-area {
+  grid-area: canvas;
+  background: $canvas-bg;
+  overflow-y: auto;
+  // 用一般 block 捲動容器，避免 flex 捲動容器溢出時裁掉 padding-bottom
+  padding: 32px 24px;
+  position: relative;
+
+  &::-webkit-scrollbar         { width: 6px; }
+  &::-webkit-scrollbar-track   { background: transparent; }
+  &::-webkit-scrollbar-thumb   {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+}
+
+// ── 頁面畫布（白色頁面模擬）─────────────────────────────────
+#page-canvas {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;          // 水平置中（原本靠 flex align-items）
+  min-height: 400px;
+  background: $page-bg;
+  box-shadow:
+    0 4px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.06);
+  border-radius: 2px;
+  position: relative;
+}
+
+// ── 空白提示 ──────────────────────────────────────────────────
+#empty-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.empty-icon {
+  font-size: $font-size-xl;
+  opacity: 0.2;
+}
+
+.empty-text {
+  font-size: $font-size-base;
+  color: rgba(0, 0, 0, 0.25);
+  text-align: center;
+  line-height: 1.6;
+}
+
+// ── 拖曳插入指示線 ────────────────────────────────────────────
+.drop-indicator {
+  height: 3px;
+  background: $accent;
+  width: 100%;
+  border-radius: 2px;
+  box-shadow: 0 0 8px $accent;
+  display: none;
+
+  &.visible { display: block; }
+}
+
+// ── Canvas 內的區塊 ───────────────────────────────────────────
+.canvas-block {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  &.dragging-from-canvas { opacity: 0.3; }
+}
+
+.canvas-block-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 8px;
+  gap: 6px;
+  pointer-events: none;
+
+  .canvas-block:hover & {
+    opacity: 1;
+    pointer-events: all;
+    background: rgba(59, 130, 246, 0.04);
+    outline: 2px solid rgba(59, 130, 246, 0.4);
+    outline-offset: -2px;
+  }
+}
+
+.canvas-block-handle {
+  @extend %overlay-ctrl;
+  background: rgba(15, 15, 25, 0.85);
+  cursor: grab;
+  font-size: $font-size-base;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #888;
+
+  &:hover { color: #fff; cursor: grabbing; }
+}
+
+.canvas-block-badge {
+  background: rgba(15, 15, 25, 0.85);
+  backdrop-filter: blur(4px);
+  border-radius: 5px;
+  padding: 0 8px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  font-size: $font-size-base;
+  color: $text-secondary;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+}
+
+.canvas-block-del {
+  @extend %overlay-ctrl;
+  background: rgba(239, 68, 68, 0.15);
+  cursor: pointer;
+  font-size: $font-size-base;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #f87171;
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.3);
+    color: #fff;
+  }
+}
