@@ -46,7 +46,7 @@ function scaleThumb(thumbEl) {
   const refW = 1000;
   const ih   = inner.scrollHeight;
   if (!tw || !ih) return;
-  const scale = Math.max(tw / refW, th / ih);
+  const scale = Math.min(tw / refW, th / ih);
   const xOff  = (tw - refW * scale) / 2;
   inner.style.transform       = `scale(${scale})`;
   inner.style.transformOrigin = 'top left';

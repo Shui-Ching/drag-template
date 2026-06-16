@@ -45,7 +45,7 @@
   //   left: 50%;
   //   width: 70%;
   //   height: 2px;
-  //   background: $accent;
+  //   background: $primary;
   //   border-radius: 1px;
   //   transform: translateX(-50%) scaleX(0);
   //   transition: transform 0.2s ease;
@@ -54,7 +54,7 @@
   &:hover:not(.active) {
     background: $white-a060;
     color: $black-a065;
-   
+
   }
 
   &.active {
@@ -62,7 +62,7 @@
     color: $black-a080;
     font-weight: 600;
     // box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    border-color: $accent;
+    border-color: $primary;
     &::after { transform: translateX(-50%) scaleX(1); }
   }
 
@@ -88,7 +88,7 @@
   &:hover {
     border-color: $danger;
     color: $danger;
-    background: $danger-a006;
+    background: $danger-a010;
   }
 }
 
@@ -109,9 +109,9 @@
   line-height: 1;
 
   &:hover {
-    border-color: $accent;
-    color: $accent;
-    background: $accent-a005;
+    border-color: $primary;
+    color: $primary;
+    background: $primary-a004;
   }
 
   &:disabled {
@@ -153,7 +153,7 @@
   box-shadow:
     0 4px 40px rgba(0, 0, 0, 0.15),
     0 0 0 1px rgba(0, 0, 0, 0.06);
-  border-radius: 2px;
+  // border-radius: 2px;
   position: relative;
 }
 
@@ -176,7 +176,7 @@
 
 .empty-text {
   font-size: $font-size-base;
-  color: $black-a025;
+  color: $black-a020;
   text-align: center;
   line-height: 1.6;
 }
@@ -184,10 +184,10 @@
 // ── 拖曳插入指示線 ────────────────────────────────────────────
 .drop-indicator {
   height: 3px;
-  background: $accent;
+  background: $primary;
   width: 100%;
   border-radius: 2px;
-  box-shadow: 0 0 8px $accent;
+  box-shadow: 0 0 8px $primary;
   display: none;
 
   &.visible { display: block; }
@@ -219,15 +219,15 @@
   .canvas-block:hover & {
     opacity: 1;
     pointer-events: all;
-    background: $accent-a004;
-    outline: 2px solid $accent-a040;
+    background: $primary-a004;
+    outline: 2px solid $primary-a040;
     outline-offset: -2px;
   }
 }
 
 .canvas-block-handle {
   @extend %overlay-ctrl;
-  background: $overlay-bg;
+  background: $black-a080;
   cursor: grab;
   font-size: $font-size-base;
   border: 1px solid $white-a010;
@@ -237,7 +237,7 @@
 }
 
 .canvas-block-badge {
-  background: $overlay-bg;
+  background: $black-a080;
   backdrop-filter: blur(4px);
   border-radius: 5px;
   padding: 0 8px;
@@ -245,14 +245,14 @@
   display: flex;
   align-items: center;
   font-size: $font-size-base;
-  color: $text-secondary;
-  border: 1px solid $block-card-border;
+  color: $secondary;
+  border: 1px solid $white-a010;
   pointer-events: none;
 }
 
 .canvas-block-del {
   @extend %overlay-ctrl;
-  background: $danger-a015;
+  background: $danger-a010;
   cursor: pointer;
   font-size: $font-size-base;
   border: 1px solid $danger-a020;

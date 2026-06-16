@@ -1,7 +1,7 @@
 #app {
   display: grid;
   grid-template-rows: 52px 1fr;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 400px 1fr;
   grid-template-areas:
     "toolbar toolbar"
     "sidebar canvas";

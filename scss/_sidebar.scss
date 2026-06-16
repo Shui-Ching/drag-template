@@ -1,7 +1,7 @@
 #sidebar {
   grid-area: sidebar;
-  background: $sidebar-bg;
-  border-right: 1px solid $sidebar-border;
+  background: $bg-app;
+  border-right: 1px solid $secondary;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -12,7 +12,7 @@
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: $text-secondary;
+  color: $secondary;
   padding: 16px 16px 8px;
 }
 
@@ -22,7 +22,7 @@
   flex-direction: column;
   gap: 2px;
   padding: 0 10px 12px;
-  border-bottom: 1px solid $sidebar-border;
+  border-bottom: 1px solid $secondary;
 }
 
 .cat-btn {
@@ -30,7 +30,7 @@
   font-size: $font-size-base;
   background: transparent;
   border: none;
-  color: $cat-text;
+  color: $secondary;
   padding: 8px 10px;
   border-radius: 6px;
   cursor: pointer;
@@ -43,12 +43,12 @@
 
   &:hover {
     background: $sidebar-hover;
-    color: $text-primary;
+    color: $white;
   }
 
   &.active {
-    background: $accent-a015;
-    color: $accent-light;
+    background: $primary-a015;
+    color: $primary-light;
     font-weight: 500;
   }
 }
@@ -89,27 +89,27 @@
 }
 
 .block-card {
-  background: $block-card-bg;
-  border: 1px solid $block-card-border;
-  border-radius: 8px;
+  background: $bg-card;
+  border: 1px solid $white-a010;
+  // border-radius: 8px;
   overflow: hidden;
   cursor: grab;
   transition: all 0.15s;
   user-select: none;
 
   &:hover {
-    border-color: $accent-a040;
-    background: $block-card-hover;
+    border-color: $primary-a040;
+    background: $bg-card-hover;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px $black-a030;
   }
- 
+
   &.dragging { opacity: 0.4; cursor: grabbing; }
 }
- 
+
 .block-thumb {
   width: 100%;
-  height: 68px;
+  height: 86px;
   overflow: hidden;
   position: relative;
   background: $thumb-bg; // 淺色預設底，短區塊填色前的備用背景
@@ -118,7 +118,7 @@
 .block-card-label {
   padding: 6px 8px;
   font-size: $font-size-base;
-  color: $text-secondary;
+  color: $secondary;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

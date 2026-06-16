@@ -9,21 +9,21 @@ html, body {
   overflow: hidden;
   background: #0e1117;
   font-family: "Inter", "Noto Sans TC", sans-serif;
-  color: #f0f0ef;
+  color: #ffffff;
 }
 
 #app {
   display: grid;
   grid-template-rows: 52px 1fr;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 400px 1fr;
   grid-template-areas: "toolbar toolbar" "sidebar canvas";
   height: 100vh;
 }
 
 #toolbar {
   grid-area: toolbar;
-  background: #0a0d14;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: #0e1117;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -35,7 +35,7 @@ html, body {
   font-family: "Inter", "Noto Sans TC", sans-serif;
   font-size: 16px;
   font-weight: 800;
-  color: #f0f0ef;
+  color: #ffffff;
   letter-spacing: -0.3px;
   display: flex;
   align-items: center;
@@ -45,9 +45,9 @@ html, body {
 .toolbar-brand-dot {
   width: 8px;
   height: 8px;
-  background: #3b82f6;
+  background: #2270ee;
   border-radius: 50%;
-  box-shadow: 0 0 8px #3b82f6;
+  box-shadow: 0 0 8px #2270ee;
 }
 
 .toolbar-sep {
@@ -56,11 +56,10 @@ html, body {
 
 #block-count {
   font-size: 16px;
-  color: #5c6170;
+  color: #2270ee;
   padding: 4px 10px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .btn {
@@ -78,12 +77,12 @@ html, body {
 }
 .btn-ghost {
   background: transparent;
-  color: #5c6170;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #6b7280;
+  border: 1px solid #6b7280;
 }
 .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: #f0f0ef;
+  background: rgb(32.1, 34.2, 38.4);
+  color: #ffffff;
 }
 .btn-danger {
   background: rgba(239, 68, 68, 0.1);
@@ -94,17 +93,17 @@ html, body {
   background: rgba(239, 68, 68, 0.2);
 }
 .btn-primary {
-  background: #3b82f6;
+  background: #2270ee;
   color: #ffffff;
 }
 .btn-primary:hover {
-  background: #2563eb;
+  background: rgb(27.2, 89.6, 190.4);
 }
 
 #sidebar {
   grid-area: sidebar;
   background: #0e1117;
-  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  border-right: 1px solid #6b7280;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -115,7 +114,7 @@ html, body {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #5c6170;
+  color: #6b7280;
   padding: 16px 16px 8px;
 }
 
@@ -124,7 +123,7 @@ html, body {
   flex-direction: column;
   gap: 2px;
   padding: 0 10px 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid #6b7280;
 }
 
 .cat-btn {
@@ -144,12 +143,12 @@ html, body {
   transition: all 0.12s;
 }
 .cat-btn:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: #f0f0ef;
+  background: rgb(32.1, 34.2, 38.4);
+  color: #ffffff;
 }
 .cat-btn.active {
-  background: rgba(59, 130, 246, 0.15);
-  color: #93c5fd;
+  background: rgba(34, 112, 238, 0.15);
+  color: rgb(155.55, 190.65, 247.35);
   font-weight: 500;
 }
 
@@ -192,15 +191,14 @@ html, body {
 
 .block-card {
   background: #161b27;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
   cursor: grab;
   transition: all 0.15s;
   user-select: none;
 }
 .block-card:hover {
-  border-color: rgba(59, 130, 246, 0.4);
+  border-color: rgba(34, 112, 238, 0.4);
   background: #1e2538;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -212,16 +210,16 @@ html, body {
 
 .block-thumb {
   width: 100%;
-  height: 68px;
+  height: 86px;
   overflow: hidden;
   position: relative;
-  background: #f1f5f9;
+  background: rgb(246.16, 249.28, 254.32);
 }
 
 .block-card-label {
   padding: 6px 8px;
   font-size: 16px;
-  color: #5c6170;
+  color: #6b7280;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -283,7 +281,7 @@ html, body {
   background: rgba(255, 255, 255, 0.88);
   color: rgba(0, 0, 0, 0.8);
   font-weight: 600;
-  border-color: #3b82f6;
+  border-color: #2270ee;
 }
 .canvas-tab.active::after {
   transform: translateX(-50%) scaleX(1);
@@ -311,7 +309,7 @@ html, body {
 .canvas-tab-del:hover {
   border-color: #ef4444;
   color: #ef4444;
-  background: rgba(239, 68, 68, 0.06);
+  background: rgba(239, 68, 68, 0.1);
 }
 
 .canvas-tab-add {
@@ -331,9 +329,9 @@ html, body {
   line-height: 1;
 }
 .canvas-tab-add:hover {
-  border-color: #3b82f6;
-  color: #3b82f6;
-  background: rgba(59, 130, 246, 0.05);
+  border-color: #2270ee;
+  color: #2270ee;
+  background: rgba(34, 112, 238, 0.04);
 }
 .canvas-tab-add:disabled {
   opacity: 0.35;
@@ -371,7 +369,6 @@ html, body {
   min-height: 400px;
   background: #ffffff;
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.06);
-  border-radius: 2px;
   position: relative;
 }
 
@@ -393,17 +390,17 @@ html, body {
 
 .empty-text {
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.25);
+  color: rgba(0, 0, 0, 0.2);
   text-align: center;
   line-height: 1.6;
 }
 
 .drop-indicator {
   height: 3px;
-  background: #3b82f6;
+  background: #2270ee;
   width: 100%;
   border-radius: 2px;
-  box-shadow: 0 0 8px #3b82f6;
+  box-shadow: 0 0 8px #2270ee;
   display: none;
 }
 .drop-indicator.visible {
@@ -436,17 +433,17 @@ html, body {
 .canvas-block:hover .canvas-block-overlay {
   opacity: 1;
   pointer-events: all;
-  background: rgba(59, 130, 246, 0.04);
-  outline: 2px solid rgba(59, 130, 246, 0.4);
+  background: rgba(34, 112, 238, 0.04);
+  outline: 2px solid rgba(34, 112, 238, 0.4);
   outline-offset: -2px;
 }
 
 .canvas-block-handle {
-  background: rgba(15, 15, 25, 0.85);
+  background: rgba(0, 0, 0, 0.8);
   cursor: grab;
   font-size: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #888888;
+  color: rgb(135.15, 135.15, 135.15);
 }
 .canvas-block-handle:hover {
   color: #ffffff;
@@ -454,7 +451,7 @@ html, body {
 }
 
 .canvas-block-badge {
-  background: rgba(15, 15, 25, 0.85);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(4px);
   border-radius: 5px;
   padding: 0 8px;
@@ -462,17 +459,17 @@ html, body {
   display: flex;
   align-items: center;
   font-size: 16px;
-  color: #5c6170;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #6b7280;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   pointer-events: none;
 }
 
 .canvas-block-del {
-  background: rgba(239, 68, 68, 0.15);
+  background: rgba(239, 68, 68, 0.1);
   cursor: pointer;
   font-size: 16px;
   border: 1px solid rgba(239, 68, 68, 0.2);
-  color: #f87171;
+  color: rgb(245.4, 142.8, 142.8);
 }
 .canvas-block-del:hover {
   background: rgba(239, 68, 68, 0.3);
@@ -488,7 +485,7 @@ html, body {
   border-radius: 8px;
   padding: 12px 18px;
   font-size: 16px;
-  color: #f0f0ef;
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: 8px;

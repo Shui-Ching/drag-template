@@ -80,6 +80,42 @@ ${blocksHtml}
   showToast('HTML 原始碼匯出成功！', '↓');
 }
 
+export function exportBlockHTML() {
+  if (!state.selectedCanvasBlock) { showToast('請先點選畫布中的區塊', '!'); return; }
+
+  const blocks    = state.canvases[state.activeCanvas].blocks;
+  const item      = blocks.find(b => b.uid === state.selectedCanvasBlock);
+  const blockData = item ? getBlock(item.blockId) : null;
+  if (!blockData) { showToast('找不到區塊資料', '!'); return; }
+
+  const doc = `<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${blockData.label ?? item.blockId}</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: sans-serif; }
+</style>
+</head>
+<body>
+
+${blockData.html}
+
+</body>
+</html>`;
+
+  const blob = new Blob([doc], { type: 'text/html;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href     = url;
+  link.download = `block-${item.blockId}.html`;
+  link.click();
+  URL.revokeObjectURL(url);
+  showToast('區塊原始碼匯出成功！', '↓');
+}
+
 export function bindExportButtons() {
   document.getElementById('btn-export-html').addEventListener('click', () => {
     exportHTML();
@@ -97,5 +133,9 @@ export function bindExportButtons() {
     const blocks = state.canvases[state.activeCanvas].blocks;
     const block  = blocks.find(b => b.uid === state.selectedCanvasBlock);
     exportJPG(el, `block-${block?.blockId ?? 'export'}.jpg`);
+  });
+
+  document.getElementById('btn-export-block-html').addEventListener('click', () => {
+    exportBlockHTML();
   });
 }

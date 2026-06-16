@@ -1,73 +1,61 @@
-// ── Palette ─────────────────────────────────────────────────
-$sidebar-bg:         #0e1117;
-$sidebar-border:     rgba(255, 255, 255, 0.07);
-$sidebar-hover:      rgba(255, 255, 255, 0.05);
-
-$cat-text:           #6b7280;
-
-$block-card-bg:      #161b27;
-$block-card-border:  rgba(255, 255, 255, 0.07);
-$block-card-hover:   #1e2538;
-
-$canvas-bg:          #e9e7e2;
-
-$toolbar-bg:         #0a0d14;
-$toolbar-border:     rgba(255, 255, 255, 0.06);
-
-$text-primary:       #f0f0ef;
-$text-secondary:     #5c6170;
-
-$accent:             #3b82f6;
-$accent-hover:       #2563eb;
-$danger:             #ef4444;
-
-// ── 純白 ─────────────────────────────────────────────────────
-$white:              #ffffff;
-
-// ── Black α 系列（Canvas / 淺色背景疊加用）──────────────────
-$black-a008:         rgba(0, 0, 0, 0.08);
-$black-a020:         rgba(0, 0, 0, 0.20);
-$black-a025:         rgba(0, 0, 0, 0.25);
-$black-a030:         rgba(0, 0, 0, 0.30);
-$black-a040:         rgba(0, 0, 0, 0.40);
-$black-a065:         rgba(0, 0, 0, 0.65);
-$black-a080:         rgba(0, 0, 0, 0.80);
-
-// ── White α 系列（深色背景疊加用）───────────────────────────
-$white-a004:         rgba(255, 255, 255, 0.04);
-$white-a010:         rgba(255, 255, 255, 0.10);
-$white-a060:         rgba(255, 255, 255, 0.60);
-$white-a088:         rgba(255, 255, 255, 0.88);
-
-// ── Danger α 系列（#ef4444 各透明度）────────────────────────
-$danger-a006:        rgba(239, 68, 68, 0.06);
-$danger-a010:        rgba(239, 68, 68, 0.10);
-$danger-a015:        rgba(239, 68, 68, 0.15);
-$danger-a020:        rgba(239, 68, 68, 0.20);
-$danger-a030:        rgba(239, 68, 68, 0.30);
-$danger-a060:        rgba(239, 68, 68, 0.60);
-$danger-light:       #f87171;   // red-400，深色背景上的柔和紅色
-
-// ── Accent α 系列（#3b82f6 各透明度）────────────────────────
-$accent-a004:        rgba(59, 130, 246, 0.04);
-$accent-a005:        rgba(59, 130, 246, 0.05);
-$accent-a015:        rgba(59, 130, 246, 0.15);
-$accent-a040:        rgba(59, 130, 246, 0.40);
-$accent-light:       #93c5fd;   // blue-300，深色背景上的柔和藍色
-
-// ── Overlay 控制元件 ─────────────────────────────────────────
-$overlay-bg:         rgba(15, 15, 25, 0.85);   // handle / badge 背景
-$overlay-icon:       #888888;                   // handle 預設圖示色
-
-// ── 雜項 ─────────────────────────────────────────────────────
-$thumb-bg:           #f1f5f9;         // block 縮圖預設底色
-$toast-bg:           $block-card-hover; // Toast 背景，與 block-card-hover 同色
 
 // ── Typography ───────────────────────────────────────────────
 // 英文/數字用 Inter，中文 fallback 到 Noto Sans TC
-$font-ui:      'Inter', 'Noto Sans TC', sans-serif;
-$font-display: 'Inter', 'Noto Sans TC', sans-serif;
+$font-ui:      'Inter', 'Noto Sans TC', sans-serif;  // 移除 $font-display（值相同）
 
 // ── Font Size ────────────────────────────────────────────────
 $font-size-base: 16px;   // 基礎字級，切勿低於此值
 $font-size-xl:   32px;   // 大字（icon、標題用）
+
+
+// ─────主色──────────────────────────────────────────────────
+$white:              #ffffff;
+$black:              #000000;
+$primary:            #2270ee;
+$secondary:          #6b7280; 
+
+// ─────系統──────────────────────────────────────────────────
+$danger:             #ef4444; 
+
+// 深色背景（合併 $toolbar-bg / $sidebar-bg，兩者相差 4 luminance）
+$bg-app:             #0e1117;  // toolbar + sidebar 共用背景
+$bg-card:            #161b27;  // sidebar block card 背景
+$bg-card-hover:      #1e2538;  // block card hover 背景
+$canvas-bg:          #e9e7e2;
+
+
+// ── Black α 系列（Canvas / 淺色背景疊加用）──────────────────
+$black-a008:         rgba($black, 0.08);
+$black-a020:         rgba($black, 0.20);
+$black-a030:         rgba($black, 0.30);
+$black-a040:         rgba($black, 0.40);
+$black-a065:         rgba($black, 0.65);
+$black-a080:         rgba($black, 0.80);
+$overlay-icon:       mix($white, $black, 53%);  // ≈ #878787，handle 預設圖示色
+
+// ── White α 系列（深色背景疊加用）───────────────────────────
+$white-a010:         rgba($white, 0.10);
+$white-a060:         rgba($white, 0.60);
+$white-a088:         rgba($white, 0.88);
+
+// ── Danger α 系列（#ef4444 各透明度）────────────────────────
+$danger-a010:        rgba($danger, 0.10);
+$danger-a020:        rgba($danger, 0.20);
+$danger-a030:        rgba($danger, 0.30);
+$danger-a060:        rgba($danger, 0.60);
+$danger-light:       mix($white, $danger, 40%);  // ≈ red-400，深色背景上的柔和紅色
+
+// ── Accent α 系列（#3b82f6 各透明度）────────────────────────
+$primary-a004:        rgba($primary, 0.04);  // 合併原 $accent-a005（差 0.01，不可辨）
+$primary-a015:        rgba($primary, 0.15);
+$primary-a040:        rgba($primary, 0.40);
+$primary-light:       mix($white, $primary, 55%);  // ≈ blue-300，深色背景上的柔和藍色
+$primary-hover:       mix($black, $primary, 20%);
+$thumb-bg:           mix($white, $primary, 96%);  // ≈ #f1f5fd，block 縮圖預設底色
+
+// ── $secondary 系列────────────────────────
+$sidebar-hover:      mix($black, $secondary, 70%);
+ 
+ 
+
+ 
