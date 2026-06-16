@@ -1,4 +1,4 @@
-import { T } from './tokens.js';
+﻿import { T } from './tokens.js';
 
 export default [
   {
@@ -13,14 +13,14 @@ export default [
     <span style="color:${T.slate50};font-size:17px;font-weight:700;letter-spacing:-0.3px;">Brand</span>
   </div>
   <nav style="display:flex;gap:28px;">
-    <a href="#" style="color:${T.slate400};text-decoration:none;font-size:14px;">Product</a>
-    <a href="#" style="color:${T.slate400};text-decoration:none;font-size:14px;">Solutions</a>
-    <a href="#" style="color:${T.slate400};text-decoration:none;font-size:14px;">Pricing</a>
-    <a href="#" style="color:${T.slate400};text-decoration:none;font-size:14px;">Blog</a>
+    <a href="#" style="color:${T.slate400};text-decoration:none;font-size:16px;">Product</a>
+    <a href="#" style="color:${T.slate400};text-decoration:none;font-size:16px;">Solutions</a>
+    <a href="#" style="color:${T.slate400};text-decoration:none;font-size:16px;">Pricing</a>
+    <a href="#" style="color:${T.slate400};text-decoration:none;font-size:16px;">Blog</a>
   </nav>
   <div style="display:flex;gap:12px;align-items:center;">
-    <a href="#" style="color:${T.slate400};text-decoration:none;font-size:14px;">Log in</a>
-    <button style="background:${T.blue500};color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;">Sign up</button>
+    <a href="#" style="color:${T.slate400};text-decoration:none;font-size:16px;">Log in</a>
+    <button style="background:${T.blue500};color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer;">Sign up</button>
   </div>
 </header>`,
   },
@@ -31,12 +31,12 @@ export default [
     html: `<header style="background:#fff;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #000;">
   <div style="font-size:20px;font-weight:900;color:#000;letter-spacing:-1px;">BRAND.</div>
   <nav style="display:flex;gap:32px;">
-    <a href="#" style="color:#000;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Work</a>
-    <a href="#" style="color:#000;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">About</a>
-    <a href="#" style="color:#000;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Journal</a>
-    <a href="#" style="color:#000;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Contact</a>
+    <a href="#" style="color:#000;text-decoration:none;font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Work</a>
+    <a href="#" style="color:#000;text-decoration:none;font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">About</a>
+    <a href="#" style="color:#000;text-decoration:none;font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Journal</a>
+    <a href="#" style="color:#000;text-decoration:none;font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Contact</a>
   </nav>
-  <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">EN / ZH</div>
+  <div style="font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">EN / ZH</div>
 </header>`,
   },
   {
@@ -48,10 +48,10 @@ export default [
     <span style="color:#fff;font-size:22px;font-weight:800;letter-spacing:-0.5px;">✦ BRAND</span>
   </div>
   <nav style="display:flex;gap:36px;justify-content:center;">
-    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;">Home</a>
-    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;">About</a>
-    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;">Services</a>
-    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;">Contact</a>
+    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;">Home</a>
+    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;">About</a>
+    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;">Services</a>
+    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;">Contact</a>
   </nav>
 </header>`,
   },
@@ -62,14 +62,14 @@ export default [
     html: `<header style="background:rgba(10,10,20,0.95);backdrop-filter:blur(12px);padding:16px 48px;display:flex;align-items:center;gap:40px;border-bottom:1px solid rgba(255,255,255,0.08);">
   <div style="color:#fff;font-size:18px;font-weight:800;letter-spacing:-0.5px;flex-shrink:0;">B<span style="color:${T.indigo400};">.</span></div>
   <nav style="display:flex;gap:24px;flex:1;">
-    <a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;">首頁</a>
-    <a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;">服務</a>
-    <a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;">作品</a>
-    <a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;">關於</a>
+    <a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:16px;">首頁</a>
+    <a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:16px;">服務</a>
+    <a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:16px;">作品</a>
+    <a href="#" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:16px;">關於</a>
   </nav>
   <div style="display:flex;gap:8px;">
-    <button style="background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.15);padding:8px 18px;border-radius:6px;font-size:13px;cursor:pointer;">登入</button>
-    <button style="background:${T.gradIndigo};color:#fff;border:none;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;">免費試用</button>
+    <button style="background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.15);padding:8px 18px;border-radius:6px;font-size:16px;cursor:pointer;">登入</button>
+    <button style="background:${T.gradIndigo};color:#fff;border:none;padding:8px 18px;border-radius:6px;font-size:16px;font-weight:600;cursor:pointer;">免費試用</button>
   </div>
 </header>`,
   },
