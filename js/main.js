@@ -27,6 +27,18 @@ document.getElementById('btn-clear').addEventListener('click', () => {
 // ── 匯出按鈕 ─────────────────────────────────────────────────
 bindExportButtons();
 
+// ── 回到頂端 ──────────────────────────────────────────────────
+const canvasArea = document.getElementById('canvas-area');
+const goTopBtn   = document.getElementById('go-top');
+
+canvasArea.addEventListener('scroll', () => {
+  goTopBtn.classList.toggle('visible', canvasArea.scrollTop > 200);
+});
+
+goTopBtn.addEventListener('click', () => {
+  canvasArea.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 // ── Init ─────────────────────────────────────────────────────
 loadState();   // 優先還原 localStorage 的存檔
 renderCategoryList();
