@@ -1,6 +1,8 @@
 import {
   state,
   showToast,
+  saveState,
+  loadState,
   renderCategoryList,
   renderBlockList,
   renderCanvas,
@@ -17,6 +19,7 @@ document.getElementById('btn-clear').addEventListener('click', () => {
     cv.blocks                 = [];
     state.selectedCanvasBlock = null;
     renderCanvas();
+    saveState();
     showToast('頁面已清空', '⊘');
   }
 });
@@ -25,6 +28,7 @@ document.getElementById('btn-clear').addEventListener('click', () => {
 bindExportButtons();
 
 // ── Init ─────────────────────────────────────────────────────
+loadState();   // 優先還原 localStorage 的存檔
 renderCategoryList();
 renderBlockList();
 renderCanvasTabs();

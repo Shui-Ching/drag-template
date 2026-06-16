@@ -4,7 +4,8 @@
  */
 import { CATEGORIES, BLOCKS, getBlock } from './registry.js';
 
-const MAX_CANVASES = 10;
+const MAX_CANVASES  = 10;
+const STORAGE_KEY   = 'drag-template-state';
 
 // ── State ────────────────────────────────────────────────────
 export const state = {
@@ -19,6 +20,34 @@ export const state = {
 
 let uidCounter = 0;
 const genUid = () => `b${++uidCounter}`;
+
+// ── Persistence ──────────────────────────────────────────────
+export function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      canvases:    state.canvases,
+      activeCanvas: state.activeCanvas,
+      _canvasSeq:  state._canvasSeq,
+      uidCounter,
+    }));
+  } catch (_) { /* 隱私模式或容量已滿，靜默忽略 */ }
+}
+
+export function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const saved = JSON.parse(raw);
+    if (saved.canvases && Object.keys(saved.canvases).length > 0) {
+      state.canvases = saved.canvases;
+    }
+    if (saved.activeCanvas && state.canvases[saved.activeCanvas]) {
+      state.activeCanvas = saved.activeCanvas;
+    }
+    if (saved._canvasSeq) state._canvasSeq = saved._canvasSeq;
+    if (saved.uidCounter)  uidCounter       = saved.uidCounter;
+  } catch (_) { /* 資料損壞，使用預設值 */ }
+}
 
 function getActiveBlocks() {
   return state.canvases[state.activeCanvas].blocks;
@@ -149,6 +178,7 @@ export function addCanvas() {
   const id = `page-${state._canvasSeq}`;
   state.canvases[id] = { label: `頁面 ${state._canvasSeq}`, blocks: [] };
   switchCanvas(id);
+  saveState();
 }
 
 export function removeCanvas(id) {
@@ -169,6 +199,7 @@ export function removeCanvas(id) {
   state.selectedCanvasBlock = null;
   renderCanvasTabs();
   renderCanvas();
+  saveState();
 }
 
 export function switchCanvas(id) {
@@ -177,6 +208,7 @@ export function switchCanvas(id) {
   state.selectedCanvasBlock = null;
   renderCanvasTabs();
   renderCanvas();
+  saveState();
 }
 
 // ── Render: Canvas ───────────────────────────────────────────
@@ -303,6 +335,7 @@ export function handleDrop(targetIndex) {
     blocks.splice(clamp, 0, newItem);
     state.selectedCanvasBlock = null;
     renderCanvas();
+    saveState();
     showToast(`已加入 ${block.id}`);
   } else if (state.dragSource.type === 'canvas') {
     const fromIndex = state.dragSource.index;
@@ -312,6 +345,7 @@ export function handleDrop(targetIndex) {
     const clamp    = Math.max(0, Math.min(insertAt, blocks.length));
     blocks.splice(clamp, 0, moved);
     renderCanvas();
+    saveState();
   }
 }
 
@@ -320,6 +354,7 @@ export function removeCanvasBlock(uid) {
   cv.blocks = cv.blocks.filter(b => b.uid !== uid);
   if (state.selectedCanvasBlock === uid) state.selectedCanvasBlock = null;
   renderCanvas();
+  saveState();
   showToast('已移除區塊', '−');
 }
 
