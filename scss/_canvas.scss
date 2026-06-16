@@ -10,6 +10,122 @@
   transition: all 0.1s;
 }
 
+// ── 多頁分頁列 ────────────────────────────────────────────────
+#canvas-tabs {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.canvas-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  background: $black-a008;
+  font-family: $font-ui;
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $black-a040;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+  border-bottom: solid 2px;
+   border-color: transparent;
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 50%;
+  //   width: 70%;
+  //   height: 2px;
+  //   background: $accent;
+  //   border-radius: 1px;
+  //   transform: translateX(-50%) scaleX(0);
+  //   transition: transform 0.2s ease;
+  // }
+
+  &:hover:not(.active) {
+    background: $white-a060;
+    color: $black-a065;
+   
+  }
+
+  &.active {
+    background: $white-a088;
+    color: $black-a080;
+    font-weight: 600;
+    // box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    border-color: $accent;
+    &::after { transform: translateX(-50%) scaleX(1); }
+  }
+
+  &-label { pointer-events: none; }
+}
+
+.canvas-tab-del {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  padding: 5px 12px;
+  border: 1.5px solid $danger-a030;
+  border-radius: 6px;
+  background: transparent;
+  font-family: $font-ui;
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $danger-a060;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  line-height: 1;
+
+  &:hover {
+    border-color: $danger;
+    color: $danger;
+    background: $danger-a006;
+  }
+}
+
+.canvas-tab-add {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1.5px dashed $black-a020;
+  border-radius: 6px;
+  background: transparent;
+  font-family: $font-ui;
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $black-a030;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  margin-left: 6px;
+  line-height: 1;
+
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+    background: $accent-a005;
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: all; // 保留 hover 以顯示 title tooltip
+    &:hover {
+      border-color: $black-a020;
+      color: $black-a030;
+      background: transparent;
+    }
+  }
+}
+
 // ── Canvas 外框 ───────────────────────────────────────────────
 #canvas-area {
   grid-area: canvas;
@@ -22,7 +138,7 @@
   &::-webkit-scrollbar         { width: 6px; }
   &::-webkit-scrollbar-track   { background: transparent; }
   &::-webkit-scrollbar-thumb   {
-    background: rgba(0, 0, 0, 0.2);
+    background: $black-a020;
     border-radius: 3px;
   }
 }
@@ -33,7 +149,7 @@
   max-width: 1200px;
   margin: 0 auto;          // 水平置中（原本靠 flex align-items）
   min-height: 400px;
-  background: $page-bg;
+  background: $white;
   box-shadow:
     0 4px 40px rgba(0, 0, 0, 0.15),
     0 0 0 1px rgba(0, 0, 0, 0.06);
@@ -60,7 +176,7 @@
 
 .empty-text {
   font-size: $font-size-base;
-  color: rgba(0, 0, 0, 0.25);
+  color: $black-a025;
   text-align: center;
   line-height: 1.6;
 }
@@ -103,25 +219,25 @@
   .canvas-block:hover & {
     opacity: 1;
     pointer-events: all;
-    background: rgba(59, 130, 246, 0.04);
-    outline: 2px solid rgba(59, 130, 246, 0.4);
+    background: $accent-a004;
+    outline: 2px solid $accent-a040;
     outline-offset: -2px;
   }
 }
 
 .canvas-block-handle {
   @extend %overlay-ctrl;
-  background: rgba(15, 15, 25, 0.85);
+  background: $overlay-bg;
   cursor: grab;
   font-size: $font-size-base;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #888;
+  border: 1px solid $white-a010;
+  color: $overlay-icon;
 
-  &:hover { color: #fff; cursor: grabbing; }
+  &:hover { color: $white; cursor: grabbing; }
 }
 
 .canvas-block-badge {
-  background: rgba(15, 15, 25, 0.85);
+  background: $overlay-bg;
   backdrop-filter: blur(4px);
   border-radius: 5px;
   padding: 0 8px;
@@ -130,20 +246,20 @@
   align-items: center;
   font-size: $font-size-base;
   color: $text-secondary;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid $block-card-border;
   pointer-events: none;
 }
 
 .canvas-block-del {
   @extend %overlay-ctrl;
-  background: rgba(239, 68, 68, 0.15);
+  background: $danger-a015;
   cursor: pointer;
   font-size: $font-size-base;
-  border: 1px solid rgba(239, 68, 68, 0.2);
-  color: #f87171;
+  border: 1px solid $danger-a020;
+  color: $danger-light;
 
   &:hover {
-    background: rgba(239, 68, 68, 0.3);
-    color: #fff;
+    background: $danger-a030;
+    color: $white;
   }
 }

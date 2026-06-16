@@ -1,9 +1,6 @@
 // 設計 Token — 所有區塊 HTML 的共用數值
 // 修改此處即可統一影響所有區塊
 export const T = {
-  // 字型
-  font: '-apple-system,sans-serif',
-
   // 中性色（Slate 色階）
   slate900: '#0f172a',  // 深色背景、深色標題
   slate700: '#334155',  // 次要文字

@@ -2,23 +2,71 @@
 $sidebar-bg:         #0e1117;
 $sidebar-border:     rgba(255, 255, 255, 0.07);
 $sidebar-hover:      rgba(255, 255, 255, 0.05);
+
 $cat-text:           #6b7280;
+
 $block-card-bg:      #161b27;
 $block-card-border:  rgba(255, 255, 255, 0.07);
 $block-card-hover:   #1e2538;
+
 $canvas-bg:          #e9e7e2;
-$page-bg:            #ffffff;
+
 $toolbar-bg:         #0a0d14;
 $toolbar-border:     rgba(255, 255, 255, 0.06);
+
 $text-primary:       #f0f0ef;
 $text-secondary:     #5c6170;
+
 $accent:             #3b82f6;
 $accent-hover:       #2563eb;
 $danger:             #ef4444;
 
+// ── 純白 ─────────────────────────────────────────────────────
+$white:              #ffffff;
+
+// ── Black α 系列（Canvas / 淺色背景疊加用）──────────────────
+$black-a008:         rgba(0, 0, 0, 0.08);
+$black-a020:         rgba(0, 0, 0, 0.20);
+$black-a025:         rgba(0, 0, 0, 0.25);
+$black-a030:         rgba(0, 0, 0, 0.30);
+$black-a040:         rgba(0, 0, 0, 0.40);
+$black-a065:         rgba(0, 0, 0, 0.65);
+$black-a080:         rgba(0, 0, 0, 0.80);
+
+// ── White α 系列（深色背景疊加用）───────────────────────────
+$white-a004:         rgba(255, 255, 255, 0.04);
+$white-a010:         rgba(255, 255, 255, 0.10);
+$white-a060:         rgba(255, 255, 255, 0.60);
+$white-a088:         rgba(255, 255, 255, 0.88);
+
+// ── Danger α 系列（#ef4444 各透明度）────────────────────────
+$danger-a006:        rgba(239, 68, 68, 0.06);
+$danger-a010:        rgba(239, 68, 68, 0.10);
+$danger-a015:        rgba(239, 68, 68, 0.15);
+$danger-a020:        rgba(239, 68, 68, 0.20);
+$danger-a030:        rgba(239, 68, 68, 0.30);
+$danger-a060:        rgba(239, 68, 68, 0.60);
+$danger-light:       #f87171;   // red-400，深色背景上的柔和紅色
+
+// ── Accent α 系列（#3b82f6 各透明度）────────────────────────
+$accent-a004:        rgba(59, 130, 246, 0.04);
+$accent-a005:        rgba(59, 130, 246, 0.05);
+$accent-a015:        rgba(59, 130, 246, 0.15);
+$accent-a040:        rgba(59, 130, 246, 0.40);
+$accent-light:       #93c5fd;   // blue-300，深色背景上的柔和藍色
+
+// ── Overlay 控制元件 ─────────────────────────────────────────
+$overlay-bg:         rgba(15, 15, 25, 0.85);   // handle / badge 背景
+$overlay-icon:       #888888;                   // handle 預設圖示色
+
+// ── 雜項 ─────────────────────────────────────────────────────
+$thumb-bg:           #f1f5f9;         // block 縮圖預設底色
+$toast-bg:           $block-card-hover; // Toast 背景，與 block-card-hover 同色
+
 // ── Typography ───────────────────────────────────────────────
-$font-ui:      'DM Mono', monospace;
-$font-display: 'Syne', sans-serif;
+// 英文/數字用 Inter，中文 fallback 到 Noto Sans TC
+$font-ui:      'Inter', 'Noto Sans TC', sans-serif;
+$font-display: 'Inter', 'Noto Sans TC', sans-serif;
 
 // ── Font Size ────────────────────────────────────────────────
 $font-size-base: 16px;   // 基礎字級，切勿低於此值

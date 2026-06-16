@@ -1,4 +1,5 @@
 import { state, showToast } from './app.js';
+import { getBlock } from './registry.js';
 
 export async function exportJPG(target, filename) {
   if (!target) { showToast('無可匯出的內容', '!'); return; }
@@ -42,16 +43,59 @@ export async function exportJPG(target, filename) {
   }
 }
 
+export function exportHTML() {
+  const cv = state.canvases[state.activeCanvas];
+  if (cv.blocks.length === 0) { showToast('畫布是空的', '!'); return; }
+
+  const blocksHtml = cv.blocks
+    .map(item => getBlock(item.blockId)?.html ?? '')
+    .filter(Boolean)
+    .join('\n\n');
+
+  const doc = `<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Export</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: sans-serif; }
+</style>
+</head>
+<body>
+
+${blocksHtml}
+
+</body>
+</html>`;
+
+  const blob = new Blob([doc], { type: 'text/html;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href     = url;
+  link.download = 'page-export.html';
+  link.click();
+  URL.revokeObjectURL(url);
+  showToast('HTML 原始碼匯出成功！', '↓');
+}
+
 export function bindExportButtons() {
+  document.getElementById('btn-export-html').addEventListener('click', () => {
+    exportHTML();
+  });
+
   document.getElementById('btn-export-page').addEventListener('click', () => {
-    if (state.canvasBlocks.length === 0) { showToast('畫布是空的', '!'); return; }
+    const cv = state.canvases[state.activeCanvas];
+    if (cv.blocks.length === 0) { showToast('畫布是空的', '!'); return; }
     exportJPG(document.getElementById('page-canvas'), 'page-export.jpg');
   });
 
   document.getElementById('btn-export-block').addEventListener('click', () => {
     if (!state.selectedCanvasBlock) { showToast('請先點選畫布中的區塊', '!'); return; }
-    const el    = document.querySelector(`.canvas-block[data-uid="${state.selectedCanvasBlock}"]`);
-    const block = state.canvasBlocks.find(b => b.uid === state.selectedCanvasBlock);
+    const el     = document.querySelector(`.canvas-block[data-uid="${state.selectedCanvasBlock}"]`);
+    const blocks = state.canvases[state.activeCanvas].blocks;
+    const block  = blocks.find(b => b.uid === state.selectedCanvasBlock);
     exportJPG(el, `block-${block?.blockId ?? 'export'}.jpg`);
   });
 }

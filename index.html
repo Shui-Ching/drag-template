@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PageCraft — 頁面組裝系統</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.min.css">
 <!-- html2canvas 掛在 window 上供 export.js 使用 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -22,8 +23,9 @@
     <span id="block-count">0 個區塊</span>
     <div class="toolbar-sep"></div>
     <button class="btn btn-ghost" id="btn-clear" title="清空畫布">⊘ 清空</button>
-    <button class="btn btn-ghost" id="btn-export-block" title="匯出選取區塊">↓ 匯出區塊</button>
-    <button class="btn btn-primary" id="btn-export-page" title="匯出整頁 JPG">↓ 匯出整頁 JPG</button>
+    <button class="btn btn-ghost" id="btn-export-block" title="匯出選取區塊">匯出區塊</button>
+    <button class="btn btn-ghost" id="btn-export-html" title="匯出整頁 HTML 原始碼">匯出整頁原始碼</button>
+    <button class="btn btn-primary" id="btn-export-page" title="匯出整頁 JPG">匯出整頁 JPG</button>
   </header>
 
   <!-- ─── SIDEBAR ──────────────────────────────────────────── -->
@@ -36,6 +38,7 @@
 
   <!-- ─── CANVAS ───────────────────────────────────────────── -->
   <main id="canvas-area">
+    <div id="canvas-tabs"></div>
     <div id="page-canvas">
       <div id="empty-hint">
         <div class="empty-icon">⊞</div>

@@ -8,7 +8,7 @@ html, body {
   height: 100%;
   overflow: hidden;
   background: #0e1117;
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", "Noto Sans TC", sans-serif;
   color: #f0f0ef;
 }
 
@@ -32,7 +32,7 @@ html, body {
 }
 
 .toolbar-brand {
-  font-family: "Syne", sans-serif;
+  font-family: "Inter", "Noto Sans TC", sans-serif;
   font-size: 16px;
   font-weight: 800;
   color: #f0f0ef;
@@ -64,7 +64,7 @@ html, body {
 }
 
 .btn {
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", "Noto Sans TC", sans-serif;
   font-size: 16px;
   font-weight: 500;
   border: none;
@@ -95,7 +95,7 @@ html, body {
 }
 .btn-primary {
   background: #3b82f6;
-  color: #fff;
+  color: #ffffff;
 }
 .btn-primary:hover {
   background: #2563eb;
@@ -128,7 +128,7 @@ html, body {
 }
 
 .cat-btn {
-  font-family: "DM Mono", monospace;
+  font-family: "Inter", "Noto Sans TC", sans-serif;
   font-size: 16px;
   background: transparent;
   border: none;
@@ -215,7 +215,7 @@ html, body {
   height: 68px;
   overflow: hidden;
   position: relative;
-  background: #1a2035;
+  background: #f1f5f9;
 }
 
 .block-card-label {
@@ -227,155 +227,13 @@ html, body {
   text-overflow: ellipsis;
 }
 
-.thumb-header {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 8px;
-  gap: 6px;
-}
-
-.thumb-logo {
-  width: 20px;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 2px;
-}
-
-.thumb-nav {
-  flex: 1;
-  display: flex;
-  gap: 4px;
-  justify-content: center;
-}
-.thumb-nav span {
-  width: 12px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
-}
-
-.thumb-btn {
-  width: 22px;
-  height: 10px;
-  background: #3b82f6;
-  border-radius: 2px;
-  opacity: 0.8;
-}
-
-.thumb-banner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 8px;
-  gap: 4px;
-  height: 100%;
-}
-.thumb-banner-title {
-  height: 8px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 2px;
-  width: 70%;
-}
-.thumb-banner-sub {
-  height: 4px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
-  width: 50%;
-}
-.thumb-banner-cta {
-  margin-top: 4px;
-  height: 10px;
-  width: 36px;
-  background: #3b82f6;
-  border-radius: 2px;
-  opacity: 0.8;
-}
-
-.thumb-cols {
-  display: flex;
-  gap: 4px;
-  align-items: stretch;
-  height: 100%;
-  padding: 8px;
-}
-
-.thumb-col {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 3px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 4px;
-}
-
-.thumb-col-line {
-  height: 3px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 1px;
-}
-.thumb-col-line.short {
-  width: 60%;
-}
-
-.thumb-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 100%;
-  flex-direction: column;
-}
-.thumb-cta-text {
-  height: 6px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 2px;
-  width: 50%;
-}
-.thumb-cta-btn {
-  height: 12px;
-  width: 44px;
-  background: #3b82f6;
-  border-radius: 3px;
-  opacity: 0.8;
-}
-
-.thumb-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
-  padding: 6px 8px;
-  gap: 4px;
-}
-.thumb-footer-cols {
-  display: flex;
-  gap: 4px;
-  flex: 1;
-  align-items: flex-end;
-  padding-bottom: 4px;
-}
-.thumb-footer-col {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.thumb-footer-line {
-  height: 3px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 1px;
-}
-.thumb-footer-line.head {
-  background: rgba(255, 255, 255, 0.45);
-  width: 50%;
-}
-.thumb-footer-bar {
-  height: 4px;
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 1px;
-  margin-top: 2px;
+.block-thumb-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1000px;
+  pointer-events: none;
+  user-select: none;
 }
 
 .canvas-block-del, .canvas-block-handle {
@@ -387,6 +245,105 @@ html, body {
   align-items: center;
   justify-content: center;
   transition: all 0.1s;
+}
+
+#canvas-tabs {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.canvas-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  background: rgba(0, 0, 0, 0.08);
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+  border-bottom: solid 2px;
+  border-color: transparent;
+}
+.canvas-tab:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.65);
+}
+.canvas-tab.active {
+  background: rgba(255, 255, 255, 0.88);
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+  border-color: #3b82f6;
+}
+.canvas-tab.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+.canvas-tab-label {
+  pointer-events: none;
+}
+
+.canvas-tab-del {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  padding: 5px 12px;
+  border: 1.5px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+  background: transparent;
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(239, 68, 68, 0.6);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  line-height: 1;
+}
+.canvas-tab-del:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.06);
+}
+
+.canvas-tab-add {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1.5px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background: transparent;
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  margin-left: 6px;
+  line-height: 1;
+}
+.canvas-tab-add:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.05);
+}
+.canvas-tab-add:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: all;
+}
+.canvas-tab-add:disabled:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.3);
+  background: transparent;
 }
 
 #canvas-area {
@@ -489,10 +446,10 @@ html, body {
   cursor: grab;
   font-size: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #888;
+  color: #888888;
 }
 .canvas-block-handle:hover {
-  color: #fff;
+  color: #ffffff;
   cursor: grabbing;
 }
 
@@ -519,7 +476,7 @@ html, body {
 }
 .canvas-block-del:hover {
   background: rgba(239, 68, 68, 0.3);
-  color: #fff;
+  color: #ffffff;
 }
 
 #toast {

@@ -4,17 +4,25 @@
  */
 import { CATEGORIES, BLOCKS, getBlock } from './registry.js';
 
+const MAX_CANVASES = 10;
+
 // ── State ────────────────────────────────────────────────────
 export const state = {
   selectedCategory:    'header',
-  canvasBlocks:        [],      // [{ uid, blockId }]
-  dragSource:          null,    // { type:'sidebar'|'canvas', blockId?, uid?, index? }
+  canvases:            { 'page-1': { label: '頁面 1', blocks: [] } },
+  activeCanvas:        'page-1',
+  _canvasSeq:          1,
+  dragSource:          null,
   dragOverIndex:       null,
   selectedCanvasBlock: null,
 };
 
 let uidCounter = 0;
 const genUid = () => `b${++uidCounter}`;
+
+function getActiveBlocks() {
+  return state.canvases[state.activeCanvas].blocks;
+}
 
 // ── Toast ────────────────────────────────────────────────────
 export function showToast(msg, icon = '✓') {
@@ -24,65 +32,25 @@ export function showToast(msg, icon = '✓') {
   setTimeout(() => t.classList.remove('show'), 2200);
 }
 
-// ── Thumbnail HTML builder ───────────────────────────────────
+// ── Thumbnail（真實區塊縮放預覽）─────────────────────────────
 function buildThumb(block) {
-  const t = block.thumbType;
+  return `<div class="block-thumb-inner">${block.html}</div>`;
+}
 
-  if (t === 'header') {
-    return `<div class="thumb-header">
-      <div class="thumb-logo"></div>
-      <div class="thumb-nav"><span></span><span></span><span></span><span></span></div>
-      <div class="thumb-btn"></div>
-    </div>`;
-  }
-  if (t === 'banner') {
-    return `<div class="thumb-banner">
-      <div class="thumb-banner-title"></div>
-      <div class="thumb-banner-sub"></div>
-      <div class="thumb-banner-sub" style="width:35%"></div>
-      <div class="thumb-banner-cta"></div>
-    </div>`;
-  }
-  if (t === 'columns') {
-    const n = block.thumbCols || 3;
-    const cols = Array.from({ length: n }, () => `
-      <div class="thumb-col">
-        <div class="thumb-col-line"></div>
-        <div class="thumb-col-line short"></div>
-        <div class="thumb-col-line short"></div>
-      </div>`).join('');
-    return `<div class="thumb-cols">${cols}</div>`;
-  }
-  if (t === 'cta') {
-    return `<div class="thumb-cta">
-      <div class="thumb-cta-text"></div>
-      <div class="thumb-cta-text" style="width:35%"></div>
-      <div class="thumb-cta-btn"></div>
-    </div>`;
-  }
-  if (t === 'footer') {
-    return `<div class="thumb-footer">
-      <div class="thumb-footer-cols">
-        <div class="thumb-footer-col">
-          <div class="thumb-footer-line head"></div>
-          <div class="thumb-footer-line"></div>
-          <div class="thumb-footer-line"></div>
-        </div>
-        <div class="thumb-footer-col">
-          <div class="thumb-footer-line head"></div>
-          <div class="thumb-footer-line"></div>
-          <div class="thumb-footer-line"></div>
-        </div>
-        <div class="thumb-footer-col">
-          <div class="thumb-footer-line head"></div>
-          <div class="thumb-footer-line"></div>
-          <div class="thumb-footer-line"></div>
-        </div>
-      </div>
-      <div class="thumb-footer-bar"></div>
-    </div>`;
-  }
-  return '';
+// cover 縮放：高度撐滿縮圖框、水平置中裁切（等同 object-fit: cover）
+function scaleThumb(thumbEl) {
+  const inner = thumbEl.querySelector('.block-thumb-inner');
+  if (!inner) return;
+  const tw   = thumbEl.clientWidth;
+  const th   = thumbEl.clientHeight;
+  const refW = 1000;
+  const ih   = inner.scrollHeight;
+  if (!tw || !ih) return;
+  const scale = Math.max(tw / refW, th / ih);
+  const xOff  = (tw - refW * scale) / 2;
+  inner.style.transform       = `scale(${scale})`;
+  inner.style.transformOrigin = 'top left';
+  inner.style.left            = `${xOff}px`;
 }
 
 // ── Render: Category list ────────────────────────────────────
@@ -126,6 +94,11 @@ export function renderBlockList() {
     </div>
   `).join('');
 
+  // DOM 已更新後計算縮放比例，before first paint（rAF 在 layout 後、paint 前執行）
+  requestAnimationFrame(() => {
+    container.querySelectorAll('.block-thumb').forEach(scaleThumb);
+  });
+
   container.querySelectorAll('.block-card').forEach(card => {
     card.addEventListener('dragstart', e => {
       state.dragSource = { type: 'sidebar', blockId: card.dataset.blockId };
@@ -139,25 +112,93 @@ export function renderBlockList() {
   });
 }
 
+// ── Render: Canvas Tabs ──────────────────────────────────────
+export function renderCanvasTabs() {
+  const container = document.getElementById('canvas-tabs');
+  const canvasIds = Object.keys(state.canvases);
+  const canDelete = canvasIds.length > 1;
+  const activeLabel = state.canvases[state.activeCanvas]?.label || '';
+
+  const atLimit = canvasIds.length >= MAX_CANVASES;
+
+  container.innerHTML = canvasIds.map(id => {
+    const cv     = state.canvases[id];
+    const active = state.activeCanvas === id;
+    return `<button class="canvas-tab${active ? ' active' : ''}" data-canvas-id="${id}">
+      <span class="canvas-tab-label">${cv.label}</span>
+    </button>`;
+  }).join('') +
+  `<button class="canvas-tab-add" id="btn-add-canvas" title="${atLimit ? `最多只能建立 ${MAX_CANVASES} 個頁面` : '新增頁面'}"${atLimit ? ' disabled' : ''}>+ 新增頁面</button>` +
+  (canDelete ? `<button class="canvas-tab-del" id="btn-del-canvas" title="刪除目前頁面">刪除「${activeLabel}」</button>` : '');
+
+  container.querySelectorAll('.canvas-tab').forEach(btn => {
+    btn.addEventListener('click', () => switchCanvas(btn.dataset.canvasId));
+  });
+
+  document.getElementById('btn-add-canvas').addEventListener('click', addCanvas);
+
+  const delBtn = document.getElementById('btn-del-canvas');
+  if (delBtn) {
+    delBtn.addEventListener('click', () => removeCanvas(state.activeCanvas));
+  }
+}
+
+export function addCanvas() {
+  if (Object.keys(state.canvases).length >= MAX_CANVASES) return;
+  state._canvasSeq++;
+  const id = `page-${state._canvasSeq}`;
+  state.canvases[id] = { label: `頁面 ${state._canvasSeq}`, blocks: [] };
+  switchCanvas(id);
+}
+
+export function removeCanvas(id) {
+  const canvasIds = Object.keys(state.canvases);
+  if (canvasIds.length <= 1) return;
+
+  const cv = state.canvases[id];
+  if (cv.blocks.length > 0 && !confirm(`確定要刪除「${cv.label}」嗎？此頁面共有 ${cv.blocks.length} 個區塊。`)) return;
+
+  delete state.canvases[id];
+
+  // 刪除後切換到最後一個剩餘頁面
+  if (state.activeCanvas === id) {
+    const remaining = Object.keys(state.canvases);
+    state.activeCanvas = remaining[remaining.length - 1];
+  }
+
+  state.selectedCanvasBlock = null;
+  renderCanvasTabs();
+  renderCanvas();
+}
+
+export function switchCanvas(id) {
+  if (!state.canvases[id]) return;
+  state.activeCanvas        = id;
+  state.selectedCanvasBlock = null;
+  renderCanvasTabs();
+  renderCanvas();
+}
+
 // ── Render: Canvas ───────────────────────────────────────────
 export function renderCanvas() {
   const canvas = document.getElementById('page-canvas');
   const hint   = document.getElementById('empty-hint');
+  const blocks = getActiveBlocks();
 
   // 只清除動態產生的區塊與指示線，保留 #empty-hint 元素留在 DOM 中
   // （若整批清空會把 hint 一起移除，導致下次 render 取不到而中斷）
   canvas.querySelectorAll('.canvas-block, .drop-indicator').forEach(el => el.remove());
 
-  if (state.canvasBlocks.length === 0) {
+  if (blocks.length === 0) {
     hint.style.display = 'flex';
     document.getElementById('block-count').textContent = '0 個區塊';
     return;
   }
 
   hint.style.display = 'none';
-  document.getElementById('block-count').textContent = `${state.canvasBlocks.length} 個區塊`;
+  document.getElementById('block-count').textContent = `${blocks.length} 個區塊`;
 
-  state.canvasBlocks.forEach((item, index) => {
+  blocks.forEach((item, index) => {
     const block = getBlock(item.blockId);
     if (!block) return;
 
@@ -230,7 +271,7 @@ export function renderCanvas() {
   // 最末的插入指示線
   const lastIndicator = document.createElement('div');
   lastIndicator.className = 'drop-indicator';
-  lastIndicator.dataset.insertIndex = state.canvasBlocks.length;
+  lastIndicator.dataset.insertIndex = blocks.length;
   canvas.appendChild(lastIndicator);
 }
 
@@ -252,29 +293,31 @@ export function clearDropIndicators() {
 export function handleDrop(targetIndex) {
   clearDropIndicators();
   if (!state.dragSource) return;
+  const blocks = getActiveBlocks();
 
   if (state.dragSource.type === 'sidebar') {
     const block = getBlock(state.dragSource.blockId);
     if (!block) return;
     const newItem = { uid: genUid(), blockId: block.id };
-    const clamp   = Math.max(0, Math.min(targetIndex, state.canvasBlocks.length));
-    state.canvasBlocks.splice(clamp, 0, newItem);
+    const clamp   = Math.max(0, Math.min(targetIndex, blocks.length));
+    blocks.splice(clamp, 0, newItem);
     state.selectedCanvasBlock = null;
     renderCanvas();
     showToast(`已加入 ${block.id}`);
   } else if (state.dragSource.type === 'canvas') {
     const fromIndex = state.dragSource.index;
     if (fromIndex === targetIndex || fromIndex === targetIndex - 1) return;
-    const [moved] = state.canvasBlocks.splice(fromIndex, 1);
+    const [moved] = blocks.splice(fromIndex, 1);
     const insertAt = targetIndex > fromIndex ? targetIndex - 1 : targetIndex;
-    const clamp    = Math.max(0, Math.min(insertAt, state.canvasBlocks.length));
-    state.canvasBlocks.splice(clamp, 0, moved);
+    const clamp    = Math.max(0, Math.min(insertAt, blocks.length));
+    blocks.splice(clamp, 0, moved);
     renderCanvas();
   }
 }
 
 export function removeCanvasBlock(uid) {
-  state.canvasBlocks = state.canvasBlocks.filter(b => b.uid !== uid);
+  const cv  = state.canvases[state.activeCanvas];
+  cv.blocks = cv.blocks.filter(b => b.uid !== uid);
   if (state.selectedCanvasBlock === uid) state.selectedCanvasBlock = null;
   renderCanvas();
   showToast('已移除區塊', '−');
@@ -286,11 +329,11 @@ export function initCanvasDrop() {
 
   canvasEl.addEventListener('dragover', e => {
     e.preventDefault();
-    if (state.canvasBlocks.length === 0) {
+    if (getActiveBlocks().length === 0) {
       canvasEl.style.outline       = '3px dashed rgba(59,130,246,0.5)';
       canvasEl.style.outlineOffset = '-8px';
     } else {
-      showDropIndicator(state.canvasBlocks.length);
+      showDropIndicator(getActiveBlocks().length);
     }
   });
 
@@ -306,6 +349,6 @@ export function initCanvasDrop() {
     e.preventDefault();
     canvasEl.style.outline       = '';
     canvasEl.style.outlineOffset = '';
-    handleDrop(state.dragOverIndex ?? state.canvasBlocks.length);
+    handleDrop(state.dragOverIndex ?? getActiveBlocks().length);
   });
 }

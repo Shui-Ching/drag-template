@@ -6,7 +6,7 @@ export default [
     label: '3-Col Features',
     thumbType: 'columns',
     thumbCols: 3,
-    html: `<section style="background:#fff;padding:72px 48px;font-family:${T.font};">
+    html: `<section style="background:#fff;padding:72px 48px;">
   <div style="text-align:center;margin-bottom:56px;">
     <h2 style="font-size:36px;font-weight:900;color:${T.slate900};letter-spacing:-0.5px;margin-bottom:12px;">核心功能</h2>
     <p style="font-size:16px;color:${T.slate500};max-width:500px;margin:0 auto;line-height:1.7;">我們提供一站式解決方案，讓您的工作效率倍增。</p>
@@ -35,7 +35,7 @@ export default [
     label: '2-Col Image+Text',
     thumbType: 'columns',
     thumbCols: 2,
-    html: `<section style="background:#fff;padding:72px 48px;display:flex;align-items:center;gap:64px;font-family:${T.font};">
+    html: `<section style="background:#fff;padding:72px 48px;display:flex;align-items:center;gap:64px;">
   <div style="flex:1;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-radius:16px;height:340px;display:flex;align-items:center;justify-content:center;">
     <div style="width:200px;height:140px;background:rgba(255,255,255,0.8);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
       <div style="width:48px;height:48px;background:linear-gradient(135deg,${T.sky500},${T.indigo500});border-radius:10px;"></div>
@@ -61,7 +61,7 @@ export default [
     label: '4-Col Stats',
     thumbType: 'columns',
     thumbCols: 4,
-    html: `<section style="background:${T.slate900};padding:72px 48px;font-family:${T.font};">
+    html: `<section style="background:${T.slate900};padding:72px 48px;">
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
     <div style="text-align:center;padding:32px 16px;">
       <div style="font-size:36px;margin-bottom:16px;">🌐</div>
@@ -91,7 +91,7 @@ export default [
     label: 'Pricing 3-Col',
     thumbType: 'columns',
     thumbCols: 3,
-    html: `<section style="background:${T.slate50};padding:72px 48px;font-family:${T.font};">
+    html: `<section style="background:${T.slate50};padding:72px 48px;">
   <div style="text-align:center;margin-bottom:48px;">
     <h2 style="font-size:36px;font-weight:900;color:${T.slate900};letter-spacing:-0.5px;margin-bottom:12px;">選擇適合您的方案</h2>
     <p style="font-size:15px;color:${T.slate500};">所有方案皆含 14 天免費試用，無需信用卡。</p>

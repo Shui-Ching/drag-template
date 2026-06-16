@@ -5,7 +5,7 @@ export default [
     id: 'footer0001',
     label: '4-Col Footer',
     thumbType: 'footer',
-    html: `<footer style="background:${T.slate900};padding:64px 48px 32px;font-family:${T.font};">
+    html: `<footer style="background:${T.slate900};padding:64px 48px 32px;">
   <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;">
     <div>
       <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:12px;">Brand.</div>
@@ -57,7 +57,7 @@ export default [
     id: 'footer0002',
     label: 'Simple Center',
     thumbType: 'footer',
-    html: `<footer style="background:#fff;padding:40px 48px;text-align:center;font-family:${T.font};border-top:1px solid #e5e7eb;">
+    html: `<footer style="background:#fff;padding:40px 48px;text-align:center;border-top:1px solid #e5e7eb;">
   <div style="font-size:16px;font-weight:800;color:#0f172a;margin-bottom:20px;">Brand.</div>
   <nav style="display:flex;gap:28px;justify-content:center;margin-bottom:24px;">
     <a href="#" style="font-size:13px;color:#6b7280;text-decoration:none;">關於</a>
@@ -73,7 +73,7 @@ export default [
     id: 'footer0003',
     label: 'Dark + Newsletter',
     thumbType: 'footer',
-    html: `<footer style="background:#09090b;padding:56px 48px 28px;font-family:${T.font};">
+    html: `<footer style="background:#09090b;padding:56px 48px 28px;">
   <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-bottom:48px;flex-wrap:wrap;">
     <div style="max-width:280px;">
       <div style="font-size:18px;font-weight:900;color:#fff;margin-bottom:12px;">★ Brand</div>

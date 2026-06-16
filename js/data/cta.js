@@ -5,7 +5,7 @@ export default [
     id: 'cta0001',
     label: 'Dark CTA',
     thumbType: 'cta',
-    html: `<section style="background:${T.slate900};padding:80px 48px;text-align:center;font-family:${T.font};">
+    html: `<section style="background:${T.slate900};padding:80px 48px;text-align:center;">
   <h2 style="font-size:40px;font-weight:900;color:#fff;letter-spacing:-0.5px;margin-bottom:16px;">準備好開始了嗎？</h2>
   <p style="font-size:16px;color:${T.slate500};margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;">加入超過 50,000 位用戶的行列，今天就開始您的免費試用。</p>
   <div style="display:flex;gap:12px;justify-content:center;">
@@ -18,7 +18,7 @@ export default [
     id: 'cta0002',
     label: 'Newsletter',
     thumbType: 'cta',
-    html: `<section style="background:#fffbeb;padding:64px 48px;text-align:center;font-family:${T.font};border-top:1px solid #fde68a;border-bottom:1px solid #fde68a;">
+    html: `<section style="background:#fffbeb;padding:64px 48px;text-align:center;border-top:1px solid #fde68a;border-bottom:1px solid #fde68a;">
   <div style="font-size:32px;margin-bottom:12px;">📬</div>
   <h2 style="font-size:28px;font-weight:900;color:#78350f;letter-spacing:-0.3px;margin-bottom:12px;">訂閱我們的電子報</h2>
   <p style="font-size:15px;color:#92400e;margin-bottom:28px;opacity:0.8;">每週一封精選內容，不發廣告，只給您真正有用的資訊。</p>
@@ -33,7 +33,7 @@ export default [
     id: 'cta0003',
     label: 'Gradient Banner',
     thumbType: 'cta',
-    html: `<section style="background:linear-gradient(135deg,${T.indigo500} 0%,${T.purple500} 50%,#ec4899 100%);padding:64px 48px;text-align:center;font-family:${T.font};">
+    html: `<section style="background:linear-gradient(135deg,${T.indigo500} 0%,${T.purple500} 50%,#ec4899 100%);padding:64px 48px;text-align:center;">
   <h2 style="font-size:36px;font-weight:900;color:#fff;letter-spacing:-0.5px;margin-bottom:14px;">讓我們一起創造不凡</h2>
   <p style="font-size:16px;color:rgba(255,255,255,0.8);margin-bottom:32px;">立即預約 30 分鐘免費諮詢，由專家協助您規劃最適合的成長策略。</p>
   <button style="background:#fff;color:${T.indigo500};border:none;padding:15px 40px;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,0.2);">預約免費諮詢</button>

@@ -47,8 +47,8 @@
   }
 
   &.active {
-    background: rgba(59, 130, 246, 0.15);
-    color: #93c5fd;
+    background: $accent-a015;
+    color: $accent-light;
     font-weight: 500;
   }
 }
@@ -83,7 +83,7 @@
   &::-webkit-scrollbar         { width: 4px; }
   &::-webkit-scrollbar-track   { background: transparent; }
   &::-webkit-scrollbar-thumb   {
-    background: rgba(255, 255, 255, 0.1);
+    background: $white-a010;
     border-radius: 2px;
   }
 }
@@ -98,21 +98,21 @@
   user-select: none;
 
   &:hover {
-    border-color: rgba(59, 130, 246, 0.4);
+    border-color: $accent-a040;
     background: $block-card-hover;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px $black-a030;
   }
-
+ 
   &.dragging { opacity: 0.4; cursor: grabbing; }
 }
-
+ 
 .block-thumb {
   width: 100%;
   height: 68px;
   overflow: hidden;
   position: relative;
-  background: #1a2035;
+  background: $thumb-bg; // 淺色預設底，短區塊填色前的備用背景
 }
 
 .block-card-label {
