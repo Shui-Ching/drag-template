@@ -46,6 +46,10 @@ export function loadState() {
     }
     if (saved._canvasSeq) state._canvasSeq = saved._canvasSeq;
     if (saved.uidCounter)  uidCounter       = saved.uidCounter;
+    // 確保舊版存檔的 canvas 也有 locked 屬性
+    Object.values(state.canvases).forEach(cv => {
+      if (cv.locked === undefined) cv.locked = false;
+    });
   } catch (_) { /* 資料損壞，使用預設值 */ }
 }
 
@@ -143,40 +147,64 @@ export function renderBlockList() {
 
 // ── Render: Canvas Tabs ──────────────────────────────────────
 export function renderCanvasTabs() {
-  const container = document.getElementById('canvas-tabs');
-  const canvasIds = Object.keys(state.canvases);
-  const canDelete = canvasIds.length > 1;
-  const activeLabel = state.canvases[state.activeCanvas]?.label || '';
-
-  const atLimit = canvasIds.length >= MAX_CANVASES;
+  const container     = document.getElementById('canvas-tabs');
+  const canvasIds     = Object.keys(state.canvases);
+  const canDelete     = canvasIds.length > 1;
+  const activeLabel   = state.canvases[state.activeCanvas]?.label || '';
+  const isActiveLocked = state.canvases[state.activeCanvas]?.locked || false;
+  const atLimit       = canvasIds.length >= MAX_CANVASES;
 
   container.innerHTML = canvasIds.map(id => {
     const cv     = state.canvases[id];
     const active = state.activeCanvas === id;
-    return `<button class="canvas-tab${active ? ' active' : ''}" data-canvas-id="${id}">
+    const locked = cv.locked || false;
+    return `<button class="canvas-tab${active ? ' active' : ''}${locked ? ' is-locked' : ''}" data-canvas-id="${id}">
+      <span class="canvas-tab-lock-btn" data-canvas-id="${id}" title="${locked ? '解除鎖定' : '鎖定此頁面'}">${locked ? '🔒' : '🔓'}</span>
       <span class="canvas-tab-label">${cv.label}</span>
     </button>`;
   }).join('') +
   `<button class="canvas-tab-add" id="btn-add-canvas" title="${atLimit ? `最多只能建立 ${MAX_CANVASES} 個頁面` : '新增頁面'}"${atLimit ? ' disabled' : ''}>+ 新增頁面</button>` +
-  (canDelete ? `<button class="canvas-tab-del" id="btn-del-canvas" title="刪除目前頁面">刪除「${activeLabel}」</button>` : '');
+  (canDelete
+    ? `<button class="canvas-tab-del${isActiveLocked ? ' is-locked' : ''}" id="btn-del-canvas" title="${isActiveLocked ? '請先解鎖才能刪除此頁面' : `刪除「${activeLabel}」`}"${isActiveLocked ? ' disabled' : ''}>${isActiveLocked ? '🔒 已鎖定' : `刪除「${activeLabel}」`}</button>`
+    : '');
 
   container.querySelectorAll('.canvas-tab').forEach(btn => {
     btn.addEventListener('click', () => switchCanvas(btn.dataset.canvasId));
+  });
+
+  // 鎖定切換：stopPropagation 避免同時觸發 tab 切換
+  container.querySelectorAll('.canvas-tab-lock-btn').forEach(lockBtn => {
+    lockBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      toggleCanvasLock(lockBtn.dataset.canvasId);
+    });
   });
 
   document.getElementById('btn-add-canvas').addEventListener('click', addCanvas);
 
   const delBtn = document.getElementById('btn-del-canvas');
   if (delBtn) {
-    delBtn.addEventListener('click', () => removeCanvas(state.activeCanvas));
+    delBtn.addEventListener('click', () => {
+      if (isActiveLocked) return;
+      removeCanvas(state.activeCanvas);
+    });
   }
+}
+
+export function toggleCanvasLock(id) {
+  const cv = state.canvases[id];
+  if (!cv) return;
+  cv.locked = !cv.locked;
+  saveState();
+  renderCanvasTabs();
+  showToast(cv.locked ? '頁面已鎖定，無法刪除' : '頁面已解鎖', cv.locked ? '🔒' : '🔓');
 }
 
 export function addCanvas() {
   if (Object.keys(state.canvases).length >= MAX_CANVASES) return;
   state._canvasSeq++;
   const id = `page-${state._canvasSeq}`;
-  state.canvases[id] = { label: `頁面 ${state._canvasSeq}`, blocks: [] };
+  state.canvases[id] = { label: `頁面 ${state._canvasSeq}`, blocks: [], locked: false };
   switchCanvas(id);
   saveState();
 }
@@ -186,6 +214,10 @@ export function removeCanvas(id) {
   if (canvasIds.length <= 1) return;
 
   const cv = state.canvases[id];
+  if (cv.locked) {
+    showToast('請先解鎖才能刪除此頁面', '🔒');
+    return;
+  }
   if (cv.blocks.length > 0 && !confirm(`確定要刪除「${cv.label}」嗎？此頁面共有 ${cv.blocks.length} 個區塊。`)) return;
 
   delete state.canvases[id];

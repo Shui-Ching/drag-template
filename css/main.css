@@ -289,6 +289,40 @@ html, body {
 .canvas-tab-label {
   pointer-events: none;
 }
+.canvas-tab.is-locked.active {
+  border-color: #d97706;
+}
+
+.canvas-tab-lock-btn {
+  order: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.canvas-tab:hover .canvas-tab-lock-btn, .canvas-tab.active .canvas-tab-lock-btn {
+  opacity: 0.45;
+  pointer-events: all;
+  cursor: pointer;
+}
+.canvas-tab-lock-btn:hover {
+  opacity: 1 !important;
+  transform: scale(1.2);
+}
+.canvas-tab.is-locked .canvas-tab-lock-btn {
+  order: -1;
+  opacity: 0.75;
+  pointer-events: all;
+  cursor: pointer;
+}
+.canvas-tab.is-locked:hover .canvas-tab-lock-btn {
+  opacity: 1;
+}
 
 .canvas-tab-del {
   margin-left: auto;
@@ -310,6 +344,17 @@ html, body {
   border-color: #ef4444;
   color: #ef4444;
   background: rgba(239, 68, 68, 0.1);
+}
+.canvas-tab-del.is-locked, .canvas-tab-del:disabled {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+  pointer-events: all;
+}
+.canvas-tab-del.is-locked:hover, .canvas-tab-del:disabled:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.3);
+  background: transparent;
 }
 
 .canvas-tab-add {
