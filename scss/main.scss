@@ -23,4 +23,7 @@
 
 // 右下角 Toast 提示訊息：彈出 / 淡出動畫
 @import 'toast';
-              
+
+// 全域確認彈窗（取代 window.confirm）
+@import 'modal';
+               

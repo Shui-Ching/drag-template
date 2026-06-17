@@ -24,7 +24,7 @@
     </div>
     <span id="block-count">0 個區塊</span>
     <div class="toolbar-sep"></div>
-    <button class="btn btn-danger" id="btn-clear" title="清空畫布">清空畫布</button>
+    <button class="btn btn-danger" id="btn-clear" title="清空所有頁面，重置回初始狀態">重置全部</button>
     <button class="btn btn-ghost" id="btn-export-block" title="匯出選取區塊">匯出區塊 JPG</button>
     <button class="btn btn-ghost" id="btn-export-block-html" title="匯出選取區塊原始碼">匯出區塊原始碼</button>
 
@@ -56,6 +56,19 @@
 </div>
 
 <div id="toast"></div>
+
+<!-- 確認彈窗 -->
+<div id="confirm-modal" class="modal-overlay" aria-hidden="true">
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-icon" id="modal-icon" aria-hidden="true"></div>
+    <h2 class="modal-title" id="modal-title"></h2>
+    <p class="modal-body" id="modal-body"></p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="modal-cancel">取消</button>
+      <button class="btn btn-danger" id="modal-confirm">確認</button>
+    </div>
+  </div>
+</div>
 
 <!-- type="module" 啟用 ES modules，需透過本機 Server 開啟（不可直接用 file://） -->
 <script type="module" src="js/main.js?v=20260616.1"></script>
