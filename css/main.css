@@ -124,6 +124,19 @@ html, body {
   gap: 2px;
   padding: 0 10px 12px;
   border-bottom: 1px solid #6b7280;
+  overflow-y: auto;
+  flex-shrink: 0;
+  max-height: 40%;
+}
+#category-list::-webkit-scrollbar {
+  width: 4px;
+}
+#category-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+#category-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
 }
 
 .cat-btn {

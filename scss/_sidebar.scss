@@ -23,6 +23,16 @@
   gap: 2px;
   padding: 0 10px 12px;
   border-bottom: 1px solid $secondary;
+  overflow-y: auto;
+  flex-shrink: 0;
+  max-height: 40%; // 分類過多時出現 scrollbar，不擠壓區塊區
+
+  &::-webkit-scrollbar         { width: 4px; }
+  &::-webkit-scrollbar-track   { background: transparent; }
+  &::-webkit-scrollbar-thumb   {
+    background: $white-a010;
+    border-radius: 2px;
+  }
 }
 
 .cat-btn {
