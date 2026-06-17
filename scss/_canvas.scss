@@ -13,7 +13,7 @@
 // ── 多頁分頁列 ────────────────────────────────────────────────
 #canvas-tabs {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1366px;
   margin: 0 auto 10px;
   display: flex;
   align-items: center;
@@ -24,8 +24,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
+  gap: 2px;
+  padding: 6px 8px;
   border: none;
   border-radius: 6px 6px 0 0;
   background: $black-a008;
@@ -80,7 +80,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1;
   flex-shrink: 0;
   opacity: 0;
@@ -103,7 +103,7 @@
   // 鎖定狀態：移到最左邊，常態可見
   .canvas-tab.is-locked & {
     order: -1;
-    opacity: 0.75;
+    opacity: 1;
     pointer-events: all;
     cursor: pointer;
   }
@@ -205,7 +205,7 @@
 // ── 頁面畫布（白色頁面模擬）─────────────────────────────────
 #page-canvas {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1366px;
   margin: 0 auto;          // 水平置中（原本靠 flex align-items）
   min-height: 400px;
   background: $white;
