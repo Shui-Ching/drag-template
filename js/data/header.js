@@ -43,16 +43,19 @@ export default [
     id: 'header0003',
     label: 'Gradient Center',
     thumbType: 'header',
-    html: `<header style="background:linear-gradient(135deg,#1e1b4b 0%,#312e81 50%,#4c1d95 100%);padding:24px 48px;">
-  <div style="text-align:center;margin-bottom:16px;">
-    <span style="color:#fff;font-size:22px;font-weight:800;letter-spacing:-0.5px;">✦ BRAND</span>
+    html: `<header style="background:${T.gradIndigo};padding:20px 0;font-family:'Noto Sans TC',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 48px;display:flex;flex-direction:column;align-items:center;gap:14px;">
+    <div style="color:#fff;font-size:20px;font-weight:800;letter-spacing:-0.5px;display:flex;align-items:center;gap:8px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+      BRAND
+    </div>
+    <nav style="display:flex;gap:36px;">
+      <a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:15px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Home</a>
+      <a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:15px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">About</a>
+      <a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:15px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Services</a>
+      <a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:15px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Contact</a>
+    </nav>
   </div>
-  <nav style="display:flex;gap:36px;justify-content:center;">
-    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;">Home</a>
-    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;">About</a>
-    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;">Services</a>
-    <a href="#" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;">Contact</a>
-  </nav>
 </header>`,
   },
   {

@@ -85,6 +85,20 @@ drag-template/
 
 > **重要**：區塊 HTML 必須使用 inline style，不依賴應用程式的全域 CSS，確保獨立渲染正確。
 
+## 區塊 HTML 編寫規範
+
+**Icon**
+- 禁止使用 emoji 或 Unicode 符號（如 ★ ♥ ✦ 🇹🇼）
+- 需要圖示一律使用 **Bootstrap Icons inline SVG**，不引入 CDN class
+- 確保區塊 self-contained，不依賴外部資源
+
+**色彩**
+- 單一區塊最多使用 2–3 種主要色彩
+- 以 `columns0005`（News List 5-Row）為最小化配色參考：
+  - `#f4f5f6` 底色、`#fff` 卡片、`#000` 主文、`#767d86` 副文
+- 如需品牌色，優先使用 `tokens.js` 中定義的 Token（`T.indigo500`、`T.slate900` 等）
+- 避免在同一區塊混用多個漸層或彩虹色系
+
 ## 擴充區塊
 
 新增區塊只需在對應分類的 block registry 陣列加入新物件：
