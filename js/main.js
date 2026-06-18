@@ -8,6 +8,7 @@ import {
   renderCanvas,
   renderCanvasTabs,
   initCanvasDrop,
+  scaleCanvasBlocks,
 } from './app.js';
 import { bindExportButtons } from './export.js';
 
@@ -100,3 +101,6 @@ renderBlockList();
 renderCanvasTabs();
 renderCanvas();
 initCanvasDrop();
+
+// 視窗縮放時重新計算畫布區塊的等比縮放
+new ResizeObserver(scaleCanvasBlocks).observe(document.getElementById('page-canvas'));

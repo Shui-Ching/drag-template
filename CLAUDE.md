@@ -97,3 +97,66 @@ drag-template/
 
 使用 `html2canvas` 擷取畫布 DOM，輸出 JPG。
 匯出目標 element id：`#page-canvas`。
+
+---
+
+## 從 Figma 切版並新增區塊（標準流程）
+
+### 前置條件
+
+- 需要 Figma MCP（`mcp__claude_ai_Figma__get_design_context`）
+- Figma URL 必須帶有 `node-id`（選到特定 frame），範例：
+  `https://www.figma.com/design/{fileKey}/...?node-id=884-3168`
+
+### 執行步驟
+
+1. **解析 URL**：從 Figma URL 取出 `fileKey` 與 `nodeId`（`884-3168` → `884:3168`）
+2. **取得設計稿**：呼叫 `get_design_context`，取得 React+Tailwind 參考碼與截圖
+3. **轉換為 inline HTML**：將所有 Tailwind class 改寫為 inline style，不保留任何外部 class
+4. **判斷分類**：依設計語意選擇 `js/data/{category}.js`，ID 接現有最大號往下排
+5. **加入陣列**：在對應 `.js` 檔案的 export 陣列末尾加入新物件
+6. **提醒編譯**：完成後提醒使用者手動執行 `sass scss/main.scss css/main.css`
+
+### 版面寬度規格
+
+Figma 設計畫布為 **1920px**，左右各 360px padding，**內容區為 1200px**。
+
+區塊 HTML 結構必須遵照：
+
+```html
+<!-- section：全寬背景色，僅設定垂直 padding -->
+<section style="background: #f4f5f6; padding: 100px 0; font-family: 'Noto Sans TC', sans-serif;">
+  <!-- 內層 wrapper：限制最大寬度並水平置中 -->
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 48px;">
+    <!-- 實際內容 -->
+  </div>
+</section>
+```
+
+> 直接在 `<section>` 加水平 padding 而不用 max-width，會讓區塊在寬螢幕上過度延伸，不符合設計稿比例。
+
+### 圖片 Placeholder 規格
+
+Figma MCP 回傳的 asset URL **7 天後失效**，不可直接使用。
+一律改為內嵌 SVG：
+
+```html
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="6" y="10" width="36" height="28" rx="3" stroke="#b0b8c1" stroke-width="2"/>
+  <circle cx="16" cy="21" r="3" fill="#b0b8c1"/>
+  <path d="M6 33l9-9 6 6 6-7 11 10" stroke="#b0b8c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+```
+
+### 字型
+
+設計稿使用 `Noto Sans TC`（`index.html` 已透過 Google Fonts CDN 載入）。
+inline style 寫法：`font-family: 'Noto Sans TC', sans-serif`
+
+### SCSS 編譯
+
+**不要自動執行** `sass` 指令。切版完成後，提醒使用者手動編譯：
+
+```bash
+sass scss/main.scss css/main.css
+```

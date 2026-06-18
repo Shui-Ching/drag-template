@@ -4,8 +4,9 @@
  */
 import { CATEGORIES, BLOCKS, getBlock } from './registry.js';
 
-const MAX_CANVASES  = 10;
-const STORAGE_KEY   = 'drag-template-state';
+const MAX_CANVASES    = 10;
+const STORAGE_KEY     = 'drag-template-state';
+const CANVAS_REF_WIDTH = 1920;  // 設計真值：區塊依 Figma 1920px 切版，畫布等比縮小呈現
 
 // ── State ────────────────────────────────────────────────────
 export const state = {
@@ -288,7 +289,7 @@ export function renderCanvas() {
         <div class="canvas-block-badge">${block.id}</div>
         <div class="canvas-block-del" data-uid="${item.uid}" title="刪除">✕</div>
       </div>
-      ${block.html}
+      <div class="canvas-block-inner">${block.html}</div>
     `;
 
     // 點擊選取（供匯出單一區塊用）
@@ -337,6 +338,42 @@ export function renderCanvas() {
   lastIndicator.className = 'drop-indicator';
   lastIndicator.dataset.insertIndex = blocks.length;
   canvas.appendChild(lastIndicator);
+
+  // DOM 完成後計算等比縮放（paint 前執行，不閃爍）
+  requestAnimationFrame(scaleCanvasBlocks);
+}
+
+// ── Canvas 區塊等比縮放 ───────────────────────────────────────
+export function scaleCanvasBlocks() {
+  const canvasEl = document.getElementById('page-canvas');
+  if (!canvasEl) return;
+  const canvasW = canvasEl.clientWidth;
+  if (!canvasW) return;
+  const scale = canvasW / CANVAS_REF_WIDTH;
+  const blocks = Array.from(canvasEl.querySelectorAll('.canvas-block'));
+
+  // ① 先批次設定參考寬度（確保後續 scrollHeight 以 CANVAS_REF_WIDTH 計算）
+  blocks.forEach(blockEl => {
+    const inner = blockEl.querySelector('.canvas-block-inner');
+    if (inner) {
+      inner.style.width          = `${CANVAS_REF_WIDTH}px`;
+      inner.style.transformOrigin = 'top left';
+    }
+  });
+
+  // ② 批次讀取高度（此時觸發一次 reflow，集中讀取避免多次強制回流）
+  const heights = blocks.map(blockEl => {
+    const inner = blockEl.querySelector('.canvas-block-inner');
+    return inner ? inner.scrollHeight : 0;
+  });
+
+  // ③ 批次寫入 transform + wrapper 高度
+  blocks.forEach((blockEl, i) => {
+    const inner = blockEl.querySelector('.canvas-block-inner');
+    if (!inner) return;
+    inner.style.transform  = `scale(${scale})`;
+    blockEl.style.height   = `${heights[i] * scale}px`;
+  });
 }
 
 // ── Drop indicators ──────────────────────────────────────────

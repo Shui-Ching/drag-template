@@ -261,6 +261,11 @@
   &.dragging-from-canvas { opacity: 0.3; }
 }
 
+// 區塊內容容器：width 與 transform 由 JS 動態設定（不依賴編譯）
+.canvas-block-inner {
+  transform-origin: top left;
+}
+
 .canvas-block-overlay {
   position: absolute;
   inset: 0;

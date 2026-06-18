@@ -128,4 +128,67 @@ export default [
   </div>
 </section>`,
   },
+  {
+    id: 'columns0005',
+    label: 'News List 5-Row',
+    thumbType: 'columns',
+    thumbCols: 1,
+    html: `<section style="background:#f4f5f6;padding:100px 0;font-family:'Noto Sans TC',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 48px;">
+  <h2 style="text-align:center;font-size:28px;font-weight:500;color:#000;margin:0 0 64px;letter-spacing:0;">新聞與動態</h2>
+  <div style="display:flex;flex-direction:column;gap:24px;">
+    <div style="background:#fff;border-radius:12px;padding:24px;display:flex;align-items:center;gap:40px;">
+      <div style="width:320px;min-width:320px;height:200px;background:#f4f5f6;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#b0b8c1" viewBox="0 0 16 16"><path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/><path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/></svg>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:16px;min-width:0;">
+        <p style="font-size:16px;font-weight:500;color:#000;margin:0;">創新設計引領未來生活空間</p>
+        <p style="font-size:14px;font-weight:400;color:#767d86;line-height:1.5;margin:0;">我們致力於為每一位客戶提供最卓越的設計解決方案。透過深厚的技術積累與前瞻性的美學眼光，我們不僅創造空間，更在重塑生活方式。</p>
+        <p style="font-size:14px;color:#767d86;margin:0;">發佈於 2024年 5月 20日</p>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:24px;display:flex;align-items:center;gap:40px;">
+      <div style="width:320px;min-width:320px;height:200px;background:#f4f5f6;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#b0b8c1" viewBox="0 0 16 16"><path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/><path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/></svg>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:16px;min-width:0;">
+        <p style="font-size:16px;font-weight:500;color:#000;margin:0;">永續建築打造綠色城市未來</p>
+        <p style="font-size:14px;font-weight:400;color:#767d86;line-height:1.5;margin:0;">面對氣候變遷的挑戰，我們積極導入綠建築標準，運用再生材料與節能技術，為客戶打造兼具美感與環保效益的永續空間。</p>
+        <p style="font-size:14px;color:#767d86;margin:0;">發佈於 2024年 4月 15日</p>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:24px;display:flex;align-items:center;gap:40px;">
+      <div style="width:320px;min-width:320px;height:200px;background:#f4f5f6;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#b0b8c1" viewBox="0 0 16 16"><path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/><path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/></svg>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:16px;min-width:0;">
+        <p style="font-size:16px;font-weight:500;color:#000;margin:0;">智慧辦公空間重新定義工作體驗</p>
+        <p style="font-size:14px;font-weight:400;color:#767d86;line-height:1.5;margin:0;">結合 IoT 感測技術與人因工學設計，我們協助企業打造自動化調節照明、溫度與音量的智慧工作環境，讓員工效率與舒適度同步提升。</p>
+        <p style="font-size:14px;color:#767d86;margin:0;">發佈於 2024年 3月 8日</p>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:24px;display:flex;align-items:center;gap:40px;">
+      <div style="width:320px;min-width:320px;height:200px;background:#f4f5f6;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#b0b8c1" viewBox="0 0 16 16"><path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/><path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/></svg>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:16px;min-width:0;">
+        <p style="font-size:16px;font-weight:500;color:#000;margin:0;">獲頒年度最佳室內設計大獎</p>
+        <p style="font-size:14px;font-weight:400;color:#767d86;line-height:1.5;margin:0;">本公司榮獲 2024 年亞太室內設計協會頒發的年度大獎，表彰我們在商業空間設計領域的突破性創作與對品質標準的堅持。</p>
+        <p style="font-size:14px;color:#767d86;margin:0;">發佈於 2024年 2月 22日</p>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:24px;display:flex;align-items:center;gap:40px;">
+      <div style="width:320px;min-width:320px;height:200px;background:#f4f5f6;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#b0b8c1" viewBox="0 0 16 16"><path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/><path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/></svg>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:16px;min-width:0;">
+        <p style="font-size:16px;font-weight:500;color:#000;margin:0;">新材料研究中心正式啟用</p>
+        <p style="font-size:14px;font-weight:400;color:#767d86;line-height:1.5;margin:0;">我們投資建立的新材料研究中心已於本月正式啟用，將專注探索生物基複合材料與循環再利用工法，推動設計產業進入下一個里程碑。</p>
+        <p style="font-size:14px;color:#767d86;margin:0;">發佈於 2024年 1月 10日</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>`,
+  },
 ];
