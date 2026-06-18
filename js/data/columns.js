@@ -116,7 +116,7 @@ export default [
           <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;min-width:20px;border-radius:50%;background:${T.slate100};display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="${T.indigo500}" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div><span style="font-size:14px;color:${T.slate700};">社群論壇支援</span></div>
           <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;min-width:20px;border-radius:50%;background:${T.slate100};display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="${T.indigo500}" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div><span style="font-size:14px;color:${T.slate700};">5 GB 儲存空間</span></div>
         </div>
-        <button style="width:100%;background:${T.slate100};color:${T.slate900};border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Noto Sans TC',sans-serif;">免費開始使用</button>
+        <button style="width:100%;background:${T.slate100};color:${T.slate900};border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;">免費開始使用</button>
       </div>
       <div style="background:#fff;border:2px solid ${T.indigo500};border-radius:20px;padding:36px 28px;box-shadow:0 20px 60px rgba(99,102,241,0.12);position:relative;">
         <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:${T.gradIndigo};color:#fff;font-size:12px;font-weight:700;padding:5px 16px;border-radius:999px;white-space:nowrap;letter-spacing:0.05em;">最受歡迎</div>
@@ -134,7 +134,7 @@ export default [
           <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;min-width:20px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="${T.indigo500}" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div><span style="font-size:14px;color:${T.slate700};">100 GB 儲存空間</span></div>
           <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;min-width:20px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="${T.indigo500}" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div><span style="font-size:14px;color:${T.slate700};">API 存取權限</span></div>
         </div>
-        <button style="width:100%;background:${T.gradIndigo};color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif;">立即升級專業版</button>
+        <button style="width:100%;background:${T.gradIndigo};color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;">立即升級專業版</button>
       </div>
       <div style="background:#fff;border:1px solid ${T.slate200};border-radius:20px;padding:36px 28px;">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:${T.slate400};margin-bottom:24px;">企業版</div>
@@ -149,7 +149,92 @@ export default [
           <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;min-width:20px;border-radius:50%;background:${T.slate100};display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="${T.indigo500}" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div><span style="font-size:14px;color:${T.slate700};">SLA 服務保證</span></div>
           <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;min-width:20px;border-radius:50%;background:${T.slate100};display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="${T.indigo500}" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg></div><span style="font-size:14px;color:${T.slate700};">專屬帳戶顧問</span></div>
         </div>
-        <button style="width:100%;background:${T.slate900};color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Noto Sans TC',sans-serif;">聯絡業務團隊</button>
+        <button style="width:100%;background:${T.slate900};color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;">聯絡業務團隊</button>
+      </div>
+    </div>
+  </div>
+</section>`,
+  },
+  {
+    id: 'columns0006',
+    label: '3x2 Project Grid',
+    thumbType: 'columns',
+    thumbCols: 3,
+    html: `<section style="background:#fff;padding:100px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 48px;">
+    <h2 style="text-align:center;font-size:28px;font-weight:500;color:#000;margin:0 0 64px;letter-spacing:0;line-height:42px;">精選專案探索</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;">
+      <div style="background:#fff;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.05);overflow:hidden;display:flex;flex-direction:column;">
+        <div style="background:#f4f5f6;height:280px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="28" rx="3" stroke="#b0b8c1" stroke-width="2"/><circle cx="16" cy="21" r="3" fill="#b0b8c1"/><path d="M6 33l9-9 6 6 6-7 11 10" stroke="#b0b8c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding:32px;display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <p style="font-size:16px;font-weight:500;color:#000;margin:0;line-height:24px;">創新設計引領未來生活空間 1</p>
+            <p style="font-size:14px;font-weight:400;color:#767d86;line-height:1.5;margin:0;">我們致力於為每一位客戶提供最卓越的設計解決方案。透過深厚的技術積累與前瞻性的美學眼光，我們不僅創造空間，更在重塑生活方式。</p>
+          </div>
+          <button style="background:#000;color:#fff;border:none;padding:0 16px;height:40px;border-radius:8px;font-size:14px;cursor:pointer;align-self:flex-start;">查看專案</button>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.05);overflow:hidden;display:flex;flex-direction:column;">
+        <div style="background:#f4f5f6;height:280px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="28" rx="3" stroke="#b0b8c1" stroke-width="2"/><circle cx="16" cy="21" r="3" fill="#b0b8c1"/><path d="M6 33l9-9 6 6 6-7 11 10" stroke="#b0b8c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding:32px;display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <p style="font-size:16px;font-weight:500;color:#000;margin:0;line-height:24px;">創新設計引領未來生活空間 2</p>
+            <p style="font-size:14px;font-weight:400;color:#767d86;line-height:1.5;margin:0;">我們致力於為每一位客戶提供最卓越的設計解決方案。透過深厚的技術積累與前瞻性的美學眼光，我們不僅創造空間，更在重塑生活方式。</p>
+          </div>
+          <button style="background:#000;color:#fff;border:none;padding:0 16px;height:40px;border-radius:8px;font-size:14px;cursor:pointer;align-self:flex-start;">查看專案</button>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.05);overflow:hidden;display:flex;flex-direction:column;">
+        <div style="background:#f4f5f6;height:280px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="28" rx="3" stroke="#b0b8c1" stroke-width="2"/><circle cx="16" cy="21" r="3" fill="#b0b8c1"/><path d="M6 33l9-9 6 6 6-7 11 10" stroke="#b0b8c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding:32px;display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <p style="font-size:16px;font-weight:500;color:#000;margin:0;line-height:24px;">創新設計引領未來生活空間 3</p>
+            <p style="font-size:14px;font-weight:400;color:#767d86;line-height:1.5;margin:0;">我們致力於為每一位客戶提供最卓越的設計解決方案。透過深厚的技術積累與前瞻性的美學眼光，我們不僅創造空間，更在重塑生活方式。</p>
+          </div>
+          <button style="background:#000;color:#fff;border:none;padding:0 16px;height:40px;border-radius:8px;font-size:14px;cursor:pointer;align-self:flex-start;">查看專案</button>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.05);overflow:hidden;display:flex;flex-direction:column;">
+        <div style="background:#f4f5f6;height:280px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="28" rx="3" stroke="#b0b8c1" stroke-width="2"/><circle cx="16" cy="21" r="3" fill="#b0b8c1"/><path d="M6 33l9-9 6 6 6-7 11 10" stroke="#b0b8c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding:32px;display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <p style="font-size:16px;font-weight:500;color:#000;margin:0;line-height:24px;">創新設計引領未來生活空間 4</p>
+            <p style="font-size:14px;font-weight:400;color:#767d86;line-height:1.5;margin:0;">我們致力於為每一位客戶提供最卓越的設計解決方案。透過深厚的技術積累與前瞻性的美學眼光，我們不僅創造空間，更在重塑生活方式。</p>
+          </div>
+          <button style="background:#000;color:#fff;border:none;padding:0 16px;height:40px;border-radius:8px;font-size:14px;cursor:pointer;align-self:flex-start;">查看專案</button>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.05);overflow:hidden;display:flex;flex-direction:column;">
+        <div style="background:#f4f5f6;height:280px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="28" rx="3" stroke="#b0b8c1" stroke-width="2"/><circle cx="16" cy="21" r="3" fill="#b0b8c1"/><path d="M6 33l9-9 6 6 6-7 11 10" stroke="#b0b8c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding:32px;display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <p style="font-size:16px;font-weight:500;color:#000;margin:0;line-height:24px;">創新設計引領未來生活空間 5</p>
+            <p style="font-size:14px;font-weight:400;color:#767d86;line-height:1.5;margin:0;">我們致力於為每一位客戶提供最卓越的設計解決方案。透過深厚的技術積累與前瞻性的美學眼光，我們不僅創造空間，更在重塑生活方式。</p>
+          </div>
+          <button style="background:#000;color:#fff;border:none;padding:0 16px;height:40px;border-radius:8px;font-size:14px;cursor:pointer;align-self:flex-start;">查看專案</button>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.05);overflow:hidden;display:flex;flex-direction:column;">
+        <div style="background:#f4f5f6;height:280px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="28" rx="3" stroke="#b0b8c1" stroke-width="2"/><circle cx="16" cy="21" r="3" fill="#b0b8c1"/><path d="M6 33l9-9 6 6 6-7 11 10" stroke="#b0b8c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding:32px;display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <p style="font-size:16px;font-weight:500;color:#000;margin:0;line-height:24px;">創新設計引領未來生活空間 6</p>
+            <p style="font-size:14px;font-weight:400;color:#767d86;line-height:1.5;margin:0;">我們致力於為每一位客戶提供最卓越的設計解決方案。透過深厚的技術積累與前瞻性的美學眼光，我們不僅創造空間，更在重塑生活方式。</p>
+          </div>
+          <button style="background:#000;color:#fff;border:none;padding:0 16px;height:40px;border-radius:8px;font-size:14px;cursor:pointer;align-self:flex-start;">查看專案</button>
+        </div>
       </div>
     </div>
   </div>
@@ -160,7 +245,7 @@ export default [
     label: 'News List 5-Row',
     thumbType: 'columns',
     thumbCols: 1,
-    html: `<section style="background:#f4f5f6;padding:100px 0;font-family:'Noto Sans TC',sans-serif;">
+    html: `<section style="background:#f4f5f6;padding:100px 0;">
   <div style="max-width:1200px;margin:0 auto;padding:0 48px;">
   <h2 style="text-align:center;font-size:28px;font-weight:500;color:#000;margin:0 0 64px;letter-spacing:0;">新聞與動態</h2>
   <div style="display:flex;flex-direction:column;gap:24px;">
@@ -215,6 +300,67 @@ export default [
       </div>
     </div>
   </div>
+  </div>
+</section>`,
+  },
+  {
+    id: 'columns0007',
+    label: 'Featured Article',
+    thumbType: 'columns',
+    thumbCols: 2,
+    html: `<section style="background:#fff;padding:120px 0;">
+  <div style="max-width:1600px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:80px;">
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:600px;">
+        <p style="font-size:28px;font-weight:500;color:#000;line-height:42px;margin:0;">深度設計洞察</p>
+        <p style="font-size:14px;font-weight:400;color:#767d86;line-height:21px;margin:0;">探索我們在建築、室內設計以及可持續發展領域的最新研究與實踐。</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:32px;align-items:flex-start;">
+      <div style="flex:0 0 auto;width:calc(65% - 16px);background:#f4f5f6;border-radius:24px;overflow:hidden;position:relative;display:flex;flex-direction:column;align-self:stretch;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;background:#f4f5f6;min-height:300px;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="28" rx="3" stroke="#b0b8c1" stroke-width="2"/><circle cx="16" cy="21" r="3" fill="#b0b8c1"/><path d="M6 33l9-9 6 6 6-7 11 10" stroke="#b0b8c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,0.73));padding:48px;">
+          <div style="display:flex;flex-direction:column;gap:12px;color:#fff;">
+            <p style="font-size:28px;font-weight:500;line-height:42px;margin:0;">年度最具影響力的設計趨勢報告</p>
+            <p style="font-size:14px;font-weight:400;line-height:21px;opacity:0.8;margin:0;">從極簡主義到生物親和設計，我們拆解了 2024 年如何定義未來的居住環境。</p>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:32px;min-width:0;">
+        <div style="display:flex;gap:20px;align-items:center;padding-bottom:32px;border-bottom:1px solid #a9b0b9;">
+          <div style="flex:0 0 180px;height:180px;background:#f4f5f6;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="28" rx="3" stroke="#b0b8c1" stroke-width="2"/><circle cx="16" cy="21" r="3" fill="#b0b8c1"/><path d="M6 33l9-9 6 6 6-7 11 10" stroke="#b0b8c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:12px;min-width:0;">
+            <p style="font-size:16px;font-weight:500;color:#000;line-height:24px;margin:0;">永續建材的革新應用</p>
+            <p style="font-size:14px;font-weight:400;color:#767d86;line-height:21px;margin:0;">了解我們如何在商業空間中融入心理學概念，提升使用者的幸福感。</p>
+            <p style="font-size:14px;font-weight:400;color:#000;line-height:21px;margin:0;">閱讀更多 →</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:20px;align-items:center;padding-bottom:32px;border-bottom:1px solid #a9b0b9;">
+          <div style="flex:0 0 180px;height:180px;background:#f4f5f6;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="28" rx="3" stroke="#b0b8c1" stroke-width="2"/><circle cx="16" cy="21" r="3" fill="#b0b8c1"/><path d="M6 33l9-9 6 6 6-7 11 10" stroke="#b0b8c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:12px;min-width:0;">
+            <p style="font-size:16px;font-weight:500;color:#000;line-height:24px;margin:0;">空間色彩心理學探討</p>
+            <p style="font-size:14px;font-weight:400;color:#767d86;line-height:21px;margin:0;">了解我們如何在商業空間中融入心理學概念，提升使用者的幸福感。</p>
+            <p style="font-size:14px;font-weight:400;color:#000;line-height:21px;margin:0;">閱讀更多 →</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:20px;align-items:center;padding-bottom:32px;border-bottom:1px solid #a9b0b9;">
+          <div style="flex:0 0 180px;height:180px;background:#f4f5f6;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="28" rx="3" stroke="#b0b8c1" stroke-width="2"/><circle cx="16" cy="21" r="3" fill="#b0b8c1"/><path d="M6 33l9-9 6 6 6-7 11 10" stroke="#b0b8c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:12px;min-width:0;">
+            <p style="font-size:16px;font-weight:500;color:#000;line-height:24px;margin:0;">生物親和設計的未來</p>
+            <p style="font-size:14px;font-weight:400;color:#767d86;line-height:21px;margin:0;">了解我們如何在商業空間中融入心理學概念，提升使用者的幸福感。</p>
+            <p style="font-size:14px;font-weight:400;color:#000;line-height:21px;margin:0;">閱讀更多 →</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>`,
   },
